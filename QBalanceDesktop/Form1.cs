@@ -45,7 +45,7 @@ namespace QBalanceDesktop
 
         private void btnSync_Click(object sender, EventArgs e)
         {
-            SyncManager.Sync(txSession.Text);
+            SyncManager.Sync();
         }
     }
 }

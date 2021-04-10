@@ -1,8 +1,10 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Configuration;
 using System.IO;
 using System.IO.Compression;
+using System.Net;
 using System.Text;
 
 namespace QBalanceDesktop
@@ -23,13 +25,14 @@ namespace QBalanceDesktop
             }
         }
 
-        internal static async void Sync(string session)
+        internal static async void Sync()
         {
+            var dSession = Login();
             SyncData syncData = new SyncData
             {
                 SyncStart = DateTime.Now,
                 NewTransactions = 0,
-                Session = session,
+                Session = dSession,
                 SyncEnd = DateTime.Now
             };
             Db.Insert(syncData);
@@ -51,6 +54,32 @@ namespace QBalanceDesktop
             }
             syncData.SyncEnd = DateTime.Now;
             Db.Update(syncData);
+        }
+
+        private static string Login()
+        {
+            string session = string.Empty;
+            using (var client = new GZipWebClient())
+            {
+                client.Headers.Add("User-Agent: Other");
+                var reqparm = new System.Collections.Specialized.NameValueCollection();
+
+                reqparm.Add("password", "nsf120315");
+                reqparm.Add("device", "PostMan");
+                reqparm.Add("version", "1.63");
+                reqparm.Add("appVersion", "1.4");
+                reqparm.Add("tzOffset", "-180");
+                reqparm.Add("model", "desktop-Win32");
+                reqparm.Add("checkSubscription", "true");
+                reqparm.Add("userid", "samadela@gmail.com");
+                byte[] responsebytes = client.UploadValues("https://cloud.finanda.co.il/login", "POST", reqparm);
+                string responsebody = Encoding.UTF8.GetString(responsebytes);
+
+                dynamic resultJson = JObject.Parse(responsebody);
+                session = resultJson.session.ToString();
+            }
+
+            return session;
         }
 
         private static void SyncForAccount(SyncData syncData)
