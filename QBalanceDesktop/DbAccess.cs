@@ -44,17 +44,26 @@ namespace QBalanceDesktop
         {
             List<string> param = new List<string>();
 
-            //if (parameters.BudgetTransactionStartDate.HasValue)
-            //{
-            //    param.Add("Date>=@StartDate");
-            //    innerParams.Add(new DbParam("@StartDate", parameters.BudgetTransactionStartDate.Value));
-            //}
+            if (parameters.CategoryGroupId.HasValue)
+            {
+                param.Add("Id=@Id");
+                innerParams.Add(new DbParam("@Id", parameters.CategoryGroupId.Value));
+            }
             if (!string.IsNullOrEmpty(parameters.TransID))
             {
                 param.Add("TransID=@TransID");
                 innerParams.Add(new DbParam("@TransID", parameters.TransID));
             }
-
+            if (!string.IsNullOrEmpty(parameters.CategoryCode))
+            {
+                param.Add("Code=@Code");
+                innerParams.Add(new DbParam("@Code", parameters.CategoryCode));
+            }
+            if (!string.IsNullOrEmpty(parameters.CategoryGroupName))
+            {
+                param.Add("Name=@Name");
+                innerParams.Add(new DbParam("@Name", parameters.CategoryGroupName));
+            }
             return param;
         }
     }
