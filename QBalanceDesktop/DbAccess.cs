@@ -49,11 +49,11 @@ namespace QBalanceDesktop
             //    param.Add("Date>=@StartDate");
             //    innerParams.Add(new DbParam("@StartDate", parameters.BudgetTransactionStartDate.Value));
             //}
-            //if (!string.IsNullOrEmpty(parameters.BudgetCategoryDefaultEntityName))
-            //{
-            //    param.Add("Name=@Name");
-            //    innerParams.Add(new DbParam("@Name", parameters.BudgetCategoryDefaultEntityName));
-            //}
+            if (!string.IsNullOrEmpty(parameters.TransID))
+            {
+                param.Add("TransID=@TransID");
+                innerParams.Add(new DbParam("@TransID", parameters.TransID));
+            }
 
             return param;
         }

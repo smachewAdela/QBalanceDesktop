@@ -45,8 +45,15 @@ namespace QBalanceDesktop
             List<string> cols = dbItem.GetInsertFields();
             foreach (var col in cols)
             {
-                var prop = dbItem.GetType().GetProperty(col);
-                b.Add($"[{col}] {GetSqlType(prop.PropertyType)}");
+                try
+                {
+                    var prop = dbItem.GetType().GetProperty(col);
+                    b.Add($"[{col}] {GetSqlType(prop.PropertyType)}");
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
             }
             return string.Join(",", b);
         }
@@ -276,8 +283,8 @@ namespace QBalanceDesktop
                 {typeof (DateTime?), "[datetime] NULL"},
                 {typeof (Int32), "[int] NOT NULL"},
                 {typeof (Int32?), "[int] NULL"},
-                {typeof (Decimal), "decimal (5,2) NOT NULL"},
-                {typeof (Decimal?), "decimal (5,2) NULL"},
+                {typeof (Decimal), "decimal (10,2) NOT NULL"},
+                {typeof (Decimal?), "decimal (10,2) NULL"},
                 {typeof (TimeSpan), "TIME (0) NOT NULL"},
                 {typeof (Guid), " UNIQUEIDENTIFIER PRIMARY KEY default NEWID()"},
                 //{typeof (Byte[]), SqlDbType.Binary},

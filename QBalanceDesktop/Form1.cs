@@ -37,5 +37,15 @@ namespace QBalanceDesktop
                 return budgetDb;
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnSync_Click(object sender, EventArgs e)
+        {
+            SyncManager.Sync(txSession.Text);
+        }
     }
 }

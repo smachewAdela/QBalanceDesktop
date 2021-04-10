@@ -33,7 +33,7 @@ namespace QBalanceDesktop
             var dbEntity = GetType().GetCustomAttributes(typeof(DbEntityAttribute), true).FirstOrDefault();
             if (dbEntity != null)
             {
-                //return (dbEntity as DbEntityAttribute).TableName;
+                return (dbEntity as DbEntityAttribute).TableName;
             }
             return GetType().Name;
         }
