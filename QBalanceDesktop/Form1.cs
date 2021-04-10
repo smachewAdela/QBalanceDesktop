@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -10,12 +11,31 @@ using System.Windows.Forms;
 
 namespace QBalanceDesktop
 {
-    public partial class Form1 : Form
+    public partial class BaseForm : Form
     {
-        public Form1()
+        public BaseForm()
         {
             InitializeComponent();
+            var items = Db.GetData<SyncData>(new SearchParameters());
         }
 
+        private void BaseForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        DbAccess budgetDb;
+        public DbAccess Db
+        {
+            get
+            {
+                if (budgetDb == null)
+                {
+                    var connStr = ConfigurationManager.AppSettings["connectionString"];
+                    budgetDb = new DbAccess(connStr);
+                }
+                return budgetDb;
+            }
+        }
     }
 }
