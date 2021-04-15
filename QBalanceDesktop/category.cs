@@ -1,7 +1,7 @@
 ﻿namespace QBalanceDesktop
 {
     [DbEntity("DCategory")]
-    public class Category : BaseDbItem
+    public class DCategory : BaseDbItem
     {
         [DbField()]
         public string Code { get;  set; }

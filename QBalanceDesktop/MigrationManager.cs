@@ -83,7 +83,7 @@ namespace QBalanceDesktop
 
         private static void GenerateBudgetForMonth(TrackedMonth tm)
         {
-            var defaultBudgetCategories = QDb.GetData<Category>(new SearchParameters());
+            var defaultBudgetCategories = QDb.GetData<DCategory>(new SearchParameters());
             var budgetCategories = defaultBudgetCategories.Select(x => new BudgetCategory
             {
                 Name = x.Description,

@@ -54,13 +54,13 @@ namespace QBalanceDesktop
             var items = Db.GetData<Transaction>(new SearchParameters());
             foreach (var tran in items)
             {
-                var cat = new Category
+                var cat = new DCategory
                 {
                     Code = tran.category,
                     Description = tran.CatDesc,
                     GroupId = Convert.ToInt32( tran.CatGroupID)
                 };
-                var exs = Db.GetSingle<Category>(new SearchParameters { CategoryCode = cat.Code });
+                var exs = Db.GetSingle<DCategory>(new SearchParameters { CategoryCode = cat.Code });
                 if (exs == null)
                     Db.Insert(cat);
 
