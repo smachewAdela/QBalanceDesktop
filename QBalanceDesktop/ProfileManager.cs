@@ -9,7 +9,7 @@ namespace QBalanceDesktop
     public class ProfileManager
     {
         private static string _session { get; set; }
-        private static ProfileData _profileData { get; set; }
+        public static ProfileData Profile { get; set; }
         private static bool Logged
         {
             get { return !string.IsNullOrEmpty(_session); }
@@ -37,10 +37,11 @@ namespace QBalanceDesktop
             }
         }
 
-        private static async void LoadProfile()
+        public static async void LoadProfile()
         {
             try
             {
+                CheckLogged();
                 var model = new
                 {
                     session = _session
@@ -49,13 +50,25 @@ namespace QBalanceDesktop
                 using (var client = new WebApiClient())
                 {
                     var serializeModel = JsonConvert.SerializeObject(model);
-                    _profileData = await client.PostJsonWithModelAsync<ProfileData>("https://cloud.finanda.co.il/getTransactionsInRange", serializeModel);
+                    var pData = await client.PostJsonAsync("https://cloud.finanda.co.il/profileInitiation", serializeModel);
+                    Profile = (ProfileData)JsonConvert.DeserializeObject(pData, typeof(ProfileData), new JsonSerializerSettings
+                    {
+                        NullValueHandling = NullValueHandling.Ignore
+                    });
 
                 }
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
+            }
+        }
+
+        private static void CheckLogged()
+        {
+            if (!Logged)
+            {
+                Login();
             }
         }
     }

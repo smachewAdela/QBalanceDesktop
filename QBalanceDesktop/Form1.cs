@@ -16,7 +16,7 @@ namespace QBalanceDesktop
         public BaseForm()
         {
             InitializeComponent();
-        
+            ProfileManager.LoadProfile();
         }
 
         private void BaseForm_Load(object sender, EventArgs e)

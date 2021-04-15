@@ -60,5 +60,26 @@ namespace QBalanceDesktop
                 return JsonConvert.DeserializeObject<T>(result);
             }
         }
+
+        public async Task<string> PostJsonAsync(string address, string data)
+        {
+            using (var client = new GZipWebClient())
+            {
+                SetHeaderParameters(client);
+                string result = client.UploadString(address, "POST", data);
+
+                // Response Headers
+                WebHeaderCollection myWebHeaderCollection = client.ResponseHeaders;
+                var lst = new List<string>();
+                for (int i = 0; i < myWebHeaderCollection.Count; i++)
+                    lst.Add("\t" + myWebHeaderCollection.GetKey(i) + " = " + myWebHeaderCollection.Get(i));
+                string reponseHeaders = String.Join(Environment.NewLine, lst);
+
+
+                dynamic jdata = JObject.Parse(result);
+                var tt = jdata.success.ToString();
+                return result;
+            }
+        }
     }
 }
