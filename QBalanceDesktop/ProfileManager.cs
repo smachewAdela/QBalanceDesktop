@@ -55,7 +55,6 @@ namespace QBalanceDesktop
                     {
                         NullValueHandling = NullValueHandling.Ignore
                     });
-
                 }
             }
             catch (Exception ex)

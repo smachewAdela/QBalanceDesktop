@@ -21,6 +21,27 @@ namespace QBalanceDesktop
 
         private void BaseForm_Load(object sender, EventArgs e)
         {
+            LoadCombos();
+        }
+
+        private void LoadCombos()
+        {
+            cmbAccounts.Items.Clear();
+            foreach (var acc in ProfileManager.Profile.accounts.CheckingAccounts)
+                cmbAccounts.Items.Add(new LIstItem { Display = acc.AccountDesc, Value = acc.AccountID });
+
+            cmbCategoryGroups.Items.Clear();
+            foreach (var acc in ProfileManager.Profile.categoryGroups)
+                cmbCategoryGroups.Items.Add(new LIstItem { Display = acc.GroupName, Value = acc.CatGroupID });
+
+            cmbCategoryTypes.Items.Clear();
+            foreach (var acc in ProfileManager.Profile.categoryTypes)
+                cmbCategoryTypes.Items.Add(new LIstItem { Display = acc.CategoryTypeName, Value = acc.CategoryType });
+
+
+            cmbLoans.Items.Clear();
+            foreach (var acc in ProfileManager.Profile.accounts.Loans)
+                cmbLoans.Items.Add(new LIstItem { Display = acc.AccountDesc, Value = acc.BalanceDisplay });
 
         }
 

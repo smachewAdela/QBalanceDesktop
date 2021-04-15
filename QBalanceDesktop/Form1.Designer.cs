@@ -34,10 +34,10 @@
             this.btnScan = new System.Windows.Forms.Button();
             this.btnSync = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.cmbCategoryTypes = new System.Windows.Forms.ComboBox();
+            this.cmbLoans = new System.Windows.Forms.ComboBox();
+            this.cmbAccounts = new System.Windows.Forms.ComboBox();
+            this.cmbCategoryGroups = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -108,64 +108,64 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             // 
-            // comboBox1
+            // cmbCategoryTypes
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(301, 25);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(181, 23);
-            this.comboBox1.TabIndex = 2;
+            this.cmbCategoryTypes.FormattingEnabled = true;
+            this.cmbCategoryTypes.Location = new System.Drawing.Point(309, 25);
+            this.cmbCategoryTypes.Name = "cmbCategoryTypes";
+            this.cmbCategoryTypes.Size = new System.Drawing.Size(181, 23);
+            this.cmbCategoryTypes.TabIndex = 2;
             // 
-            // comboBox2
+            // cmbLoans
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(918, 62);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(181, 23);
-            this.comboBox2.TabIndex = 2;
+            this.cmbLoans.FormattingEnabled = true;
+            this.cmbLoans.Location = new System.Drawing.Point(918, 62);
+            this.cmbLoans.Name = "cmbLoans";
+            this.cmbLoans.Size = new System.Drawing.Size(181, 23);
+            this.cmbLoans.TabIndex = 2;
             // 
-            // comboBox3
+            // cmbAccounts
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(918, 25);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(181, 23);
-            this.comboBox3.TabIndex = 2;
+            this.cmbAccounts.FormattingEnabled = true;
+            this.cmbAccounts.Location = new System.Drawing.Point(918, 25);
+            this.cmbAccounts.Name = "cmbAccounts";
+            this.cmbAccounts.Size = new System.Drawing.Size(181, 23);
+            this.cmbAccounts.TabIndex = 2;
             // 
-            // comboBox4
+            // cmbCategoryGroups
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(301, 62);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(181, 23);
-            this.comboBox4.TabIndex = 2;
+            this.cmbCategoryGroups.FormattingEnabled = true;
+            this.cmbCategoryGroups.Location = new System.Drawing.Point(309, 62);
+            this.cmbCategoryGroups.Name = "cmbCategoryGroups";
+            this.cmbCategoryGroups.Size = new System.Drawing.Size(181, 23);
+            this.cmbCategoryGroups.TabIndex = 2;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(216, 28);
+            this.label1.Location = new System.Drawing.Point(207, 28);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 15);
+            this.label1.Size = new System.Drawing.Size(87, 15);
             this.label1.TabIndex = 3;
-            this.label1.Text = "label1";
+            this.label1.Text = "Category Types";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(835, 28);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 15);
+            this.label3.Size = new System.Drawing.Size(57, 15);
             this.label3.TabIndex = 3;
-            this.label3.Text = "label3";
+            this.label3.Text = "Accounts";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(216, 66);
+            this.label4.Location = new System.Drawing.Point(207, 66);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(38, 15);
+            this.label4.Size = new System.Drawing.Size(96, 15);
             this.label4.TabIndex = 3;
-            this.label4.Text = "label4";
+            this.label4.Text = "Category Groups";
             // 
             // label2
             // 
@@ -174,7 +174,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(38, 15);
             this.label2.TabIndex = 3;
-            this.label2.Text = "label2";
+            this.label2.Text = "Loans";
             // 
             // BaseForm
             // 
@@ -185,10 +185,10 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox4);
-            this.Controls.Add(this.comboBox3);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cmbCategoryGroups);
+            this.Controls.Add(this.cmbAccounts);
+            this.Controls.Add(this.cmbLoans);
+            this.Controls.Add(this.cmbCategoryTypes);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button1);
@@ -209,10 +209,10 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnScan;
         private System.Windows.Forms.Button btnMigrate;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ComboBox cmbCategoryTypes;
+        private System.Windows.Forms.ComboBox cmbLoans;
+        private System.Windows.Forms.ComboBox cmbAccounts;
+        private System.Windows.Forms.ComboBox cmbCategoryGroups;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
