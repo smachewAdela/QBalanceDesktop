@@ -15,5 +15,65 @@ namespace QBalanceDesktop
         {
             return $"{d.Year}-{d.Month.ToString().PadLeft(2,'0')}-{d.Day.ToString().PadLeft(2, '0')}";
         }
+
+        #region Date
+
+        public static DateTime FirstDayOfMonth(this DateTime d)
+        {
+            return new DateTime(d.Year, d.Month, 1);
+        }
+
+        public static int NumberOfWeeksInMonth(this DateTime d)
+        {
+            //extract the month
+            int daysInMonth = DateTime.DaysInMonth(d.Year, d.Month);
+            DateTime firstOfMonth = new DateTime(d.Year, d.Month, 1);
+            //days of week starts by default as Sunday = 0
+            int firstDayOfMonth = (int)firstOfMonth.DayOfWeek;
+            int weeksInMonth = (int)Math.Ceiling((firstDayOfMonth + daysInMonth) / 7.0);
+            return weeksInMonth;
+        }
+
+        public static DateTime lastDayOfMonth(this DateTime d)
+        {
+            return new DateTime(d.Year, d.Month, DateTime.DaysInMonth(d.Year, d.Month));
+        }
+
+        public static DateTime FirstDayOfTheWeek(this DateTime d)
+        {
+            var tmpD = new DateTime(d.Year, d.Month, d.Day);
+
+            while (tmpD.DayOfWeek != DayOfWeek.Sunday)
+            {
+                tmpD = tmpD.AddDays(-1);
+            }
+            return tmpD;
+        }
+
+        public static DateTime FirstDayOfTheNextWeek(this DateTime d)
+        {
+            var tmpD = new DateTime(d.Year, d.Month, d.Day + 1);
+
+            while (tmpD.DayOfWeek != DayOfWeek.Sunday)
+            {
+                tmpD = tmpD.AddDays(1);
+            }
+            return tmpD;
+        }
+
+        public static DateTime LastDayOfTheWeek(this DateTime d)
+        {
+            var tmpD = new DateTime(d.Year, d.Month, d.Day, 23, 59, 59);
+
+            while (tmpD.DayOfWeek != DayOfWeek.Saturday)
+            {
+                tmpD = tmpD.AddDays(1);
+            }
+            return tmpD;
+        }
+
+
+        #endregion
+
     }
 }

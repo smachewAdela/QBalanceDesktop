@@ -54,7 +54,7 @@ namespace QBalanceDesktop
             var items = Db.GetData<Transaction>(new SearchParameters());
             foreach (var tran in items)
             {
-                Category cat = new Category
+                var cat = new Category
                 {
                     Code = tran.category,
                     Description = tran.CatDesc,
@@ -74,7 +74,47 @@ namespace QBalanceDesktop
                     Db.Insert(group);
             }
 
+            var months = Db.GetData<TrackedMonth>(new SearchParameters()).ToDictionary(x => x.StartDate, x => x);
+            foreach (var month in months)
+            {
+                var monthTransactions = Db.GetData<Transaction>(new SearchParameters { TranFromDate = month.Value.StartDate, TranToDate = month.Value.StartDate.AddMonths(1) });
+                if (monthTransactions.Count > 0)
+                {
+                    var groupTrans = monthTransactions.GroupBy(x => x.CatGroupID).ToList();
+                    var catTrans = monthTransactions.GroupBy(x => x.category).ToList();
+
+                    foreach (var gt in groupTrans)
+                    {
+                        var catGStats = new GroupMonthlyTotal
+                        {
+                            Month = month.Value.Title,
+                            Name = gt.First().CatGroup,
+                            Amount = (int)gt.Sum(x => x.Amount)
+                        };
+                        Db.Insert(catGStats);
+                    }
+
+                    foreach (var catTran in catTrans)
+                    {
+                        var catGStats = new CategoryMonthlyTotal
+                        {
+                            Month = month.Value.Title,
+                            Name = catTran.First().CatDesc,
+                            Amount = (int)catTran.Sum(x => x.Amount)
+                        };
+                        Db.Insert(catGStats);
+                    }
+
+                }
+            }
+
+
             MessageBox.Show("Scan Completed !");
+        }
+
+        private void btnMigrate_Click(object sender, EventArgs e)
+        {
+            MigrationManager.MigrateData();
         }
     }
 }

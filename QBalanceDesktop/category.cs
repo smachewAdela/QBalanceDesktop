@@ -9,6 +9,9 @@
         public string Description { get;  set; }
         [DbField()]
         public int GroupId { get;  set; }
+
+        [DbField()]
+        public int Amount { get; set; }
     }
 
     [DbEntity("DCategoryGroup")]

@@ -1,9 +1,11 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
 using System.IO.Compression;
+using System.Linq;
 using System.Net;
 using System.Text;
 
@@ -36,9 +38,25 @@ namespace QBalanceDesktop
                 SyncEnd = DateTime.Now
             };
             Db.Insert(syncData);
+
+            var startYear = Convert.ToInt32(ConfigurationManager.AppSettings["startYear"]);
+            var from = new DateTime(startYear, 1, 1);
+            var months = GenerateMonths(from).ToDictionary(x => x.StartDate, x => x);
+
             try
             {
-                var Accounts = new string[] { "1073741826", "1073741925", "1073742012" };
+                var Accounts = new string[] 
+                {   "1073741826", 
+                    "1073741925", 
+                    "1073742012" , 
+                    "1073741832",
+                    "1073742130",
+                    "1073742103",
+                    "1073741828",
+                    "1073741834",
+                    "1073741833",
+                    "1073742199"
+                };
                 foreach (var item in Accounts)
                 {
                     syncData.Account = item;
@@ -87,18 +105,20 @@ namespace QBalanceDesktop
             try
             {
                 var startYear = Convert.ToInt32(ConfigurationManager.AppSettings["startYear"]);
+                var monthDelemeter = Convert.ToInt32(ConfigurationManager.AppSettings["monthDelemeter"]);
 
                 var from = new DateTime(startYear, 1, 1);
-                var to = from.AddMonths(1).AddDays(-1);
+                var to = from.AddMonths(monthDelemeter);
+               
                 do
                 {
                     
-                    if (to > DateTime.Now.Date)
-                        to = DateTime.Now.Date;
+                    //if (to > DateTime.Now.Date)
+                    //    to = DateTime.Now.Date;
 
                     GetTrans(from, to, syncData);
-                    from = from.AddMonths(1);
-                    to = from.AddMonths(1).AddDays(-1);
+                    from = to;
+                    to = from.AddMonths(monthDelemeter);
                 }
                 while (to.Date <= DateTime.Now.Date);
             }
@@ -107,6 +127,25 @@ namespace QBalanceDesktop
                 syncData.LogInfo = ex.Message;
                 syncData.Success = false;
             }
+        }
+
+        private static List<TrackedMonth> GenerateMonths(DateTime dateTime)
+        {
+            var idate = dateTime.FirstDayOfMonth();
+            var months = new List<TrackedMonth>();
+            while (idate <= DateTime.Now)
+            {
+                var tm = new TrackedMonth { StartDate = idate };
+                Db.Insert(tm);
+                tm.db = Db;
+
+                idate = idate.AddMonths(1);
+              
+
+                months.Add(tm);
+            }
+
+            return months;
         }
 
         private static async void GetTrans(DateTime from, DateTime to, SyncData sync)

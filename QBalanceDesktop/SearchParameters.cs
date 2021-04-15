@@ -1,4 +1,6 @@
-﻿namespace QBalanceDesktop
+﻿using System;
+
+namespace QBalanceDesktop
 {
     public class SearchParameters
     {
@@ -6,5 +8,8 @@
         public string CategoryCode { get; internal set; }
         public int? CategoryGroupId { get; internal set; }
         public string CategoryGroupName { get; internal set; }
+        public int? BudgetCategoryMonthId { get; internal set; }
+        public DateTime? TranFromDate { get; internal set; }
+        public DateTime? TranToDate { get; internal set; }
     }
 }
