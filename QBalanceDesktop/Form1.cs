@@ -63,7 +63,7 @@ namespace QBalanceDesktop
         {
             Application.Exit();
         }
-
+         
         private void btnSync_Click(object sender, EventArgs e)
         {
             SyncManager.Sync();
