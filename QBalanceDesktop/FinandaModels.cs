@@ -5,7 +5,7 @@ using System.Text;
 
 namespace QBalanceDesktop
 {
-    class Models
+    class FinandaModels
     {
     }
 

@@ -34,15 +34,12 @@
             this.btnScan = new System.Windows.Forms.Button();
             this.btnSync = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.cmbCategoryTypes = new System.Windows.Forms.ComboBox();
-            this.cmbLoans = new System.Windows.Forms.ComboBox();
-            this.cmbAccounts = new System.Windows.Forms.ComboBox();
-            this.cmbCategoryGroups = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lblMonthTitle = new System.Windows.Forms.Label();
+            this.btnPrevMonth = new System.Windows.Forms.Button();
+            this.btnNextMonth = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -76,7 +73,6 @@
             this.btnMigrate.TabIndex = 0;
             this.btnMigrate.Text = "Migrate";
             this.btnMigrate.UseVisualStyleBackColor = true;
-            this.btnMigrate.Click += new System.EventHandler(this.btnMigrate_Click);
             // 
             // btnScan
             // 
@@ -87,7 +83,6 @@
             this.btnScan.TabIndex = 0;
             this.btnScan.Text = "Scan";
             this.btnScan.UseVisualStyleBackColor = true;
-            this.btnScan.Click += new System.EventHandler(this.btnScan_Click);
             // 
             // btnSync
             // 
@@ -98,7 +93,6 @@
             this.btnSync.TabIndex = 0;
             this.btnSync.Text = "Sync";
             this.btnSync.UseVisualStyleBackColor = true;
-            this.btnSync.Click += new System.EventHandler(this.btnSync_Click);
             // 
             // groupBox2
             // 
@@ -108,87 +102,58 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             // 
-            // cmbCategoryTypes
+            // panel1
             // 
-            this.cmbCategoryTypes.FormattingEnabled = true;
-            this.cmbCategoryTypes.Location = new System.Drawing.Point(309, 25);
-            this.cmbCategoryTypes.Name = "cmbCategoryTypes";
-            this.cmbCategoryTypes.Size = new System.Drawing.Size(181, 23);
-            this.cmbCategoryTypes.TabIndex = 2;
+            this.panel1.Controls.Add(this.lblMonthTitle);
+            this.panel1.Controls.Add(this.btnPrevMonth);
+            this.panel1.Controls.Add(this.btnNextMonth);
+            this.panel1.Location = new System.Drawing.Point(409, 39);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(565, 37);
+            this.panel1.TabIndex = 2;
             // 
-            // cmbLoans
+            // lblMonthTitle
             // 
-            this.cmbLoans.FormattingEnabled = true;
-            this.cmbLoans.Location = new System.Drawing.Point(918, 62);
-            this.cmbLoans.Name = "cmbLoans";
-            this.cmbLoans.Size = new System.Drawing.Size(181, 23);
-            this.cmbLoans.TabIndex = 2;
+            this.lblMonthTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblMonthTitle.AutoSize = true;
+            this.lblMonthTitle.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblMonthTitle.Location = new System.Drawing.Point(241, 8);
+            this.lblMonthTitle.Name = "lblMonthTitle";
+            this.lblMonthTitle.Size = new System.Drawing.Size(51, 20);
+            this.lblMonthTitle.TabIndex = 1;
+            this.lblMonthTitle.Text = "label1";
+            this.lblMonthTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // cmbAccounts
+            // btnPrevMonth
             // 
-            this.cmbAccounts.FormattingEnabled = true;
-            this.cmbAccounts.Location = new System.Drawing.Point(918, 25);
-            this.cmbAccounts.Name = "cmbAccounts";
-            this.cmbAccounts.Size = new System.Drawing.Size(181, 23);
-            this.cmbAccounts.TabIndex = 2;
+            this.btnPrevMonth.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnPrevMonth.Location = new System.Drawing.Point(490, 0);
+            this.btnPrevMonth.Name = "btnPrevMonth";
+            this.btnPrevMonth.Size = new System.Drawing.Size(75, 37);
+            this.btnPrevMonth.TabIndex = 0;
+            this.btnPrevMonth.Text = "הקודם";
+            this.btnPrevMonth.UseVisualStyleBackColor = true;
+            this.btnPrevMonth.Click += new System.EventHandler(this.btnPrevMonth_Click);
             // 
-            // cmbCategoryGroups
+            // btnNextMonth
             // 
-            this.cmbCategoryGroups.FormattingEnabled = true;
-            this.cmbCategoryGroups.Location = new System.Drawing.Point(309, 62);
-            this.cmbCategoryGroups.Name = "cmbCategoryGroups";
-            this.cmbCategoryGroups.Size = new System.Drawing.Size(181, 23);
-            this.cmbCategoryGroups.TabIndex = 2;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(207, 28);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 15);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Category Types";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(835, 28);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(57, 15);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Accounts";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(207, 66);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(96, 15);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Category Groups";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(835, 66);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 15);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Loans";
+            this.btnNextMonth.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnNextMonth.Location = new System.Drawing.Point(0, 0);
+            this.btnNextMonth.Name = "btnNextMonth";
+            this.btnNextMonth.Size = new System.Drawing.Size(75, 37);
+            this.btnNextMonth.TabIndex = 0;
+            this.btnNextMonth.Text = "הבא";
+            this.btnNextMonth.UseVisualStyleBackColor = true;
+            this.btnNextMonth.Click += new System.EventHandler(this.btnNextMonth_Click);
             // 
             // BaseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1211, 472);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.cmbCategoryGroups);
-            this.Controls.Add(this.cmbAccounts);
-            this.Controls.Add(this.cmbLoans);
-            this.Controls.Add(this.cmbCategoryTypes);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button1);
@@ -196,8 +161,9 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.BaseForm_Load);
             this.groupBox1.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -209,14 +175,10 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnScan;
         private System.Windows.Forms.Button btnMigrate;
-        private System.Windows.Forms.ComboBox cmbCategoryTypes;
-        private System.Windows.Forms.ComboBox cmbLoans;
-        private System.Windows.Forms.ComboBox cmbAccounts;
-        private System.Windows.Forms.ComboBox cmbCategoryGroups;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lblMonthTitle;
+        private System.Windows.Forms.Button btnPrevMonth;
+        private System.Windows.Forms.Button btnNextMonth;
     }
 }
 

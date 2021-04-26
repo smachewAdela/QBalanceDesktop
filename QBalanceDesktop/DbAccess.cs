@@ -79,6 +79,11 @@ namespace QBalanceDesktop
                 param.Add("CreateDate<@ToCreateDate");
                 innerParams.Add(new DbParam("@ToCreateDate", parameters.TranToDate.Value));
             }
+            if (parameters.BudgetDate.HasValue)
+            {
+                param.Add("Month=@Month");
+                innerParams.Add(new DbParam("@Month", parameters.BudgetDate.Value));
+            }
             return param;
         }
     }
