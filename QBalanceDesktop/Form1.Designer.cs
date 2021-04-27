@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BaseForm));
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnMigrate = new System.Windows.Forms.Button();
@@ -109,7 +110,7 @@
             this.panel1.Controls.Add(this.btnNextMonth);
             this.panel1.Location = new System.Drawing.Point(409, 39);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(565, 37);
+            this.panel1.Size = new System.Drawing.Size(464, 37);
             this.panel1.TabIndex = 2;
             // 
             // lblMonthTitle
@@ -118,10 +119,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblMonthTitle.AutoSize = true;
-            this.lblMonthTitle.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblMonthTitle.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblMonthTitle.Location = new System.Drawing.Point(241, 8);
             this.lblMonthTitle.Name = "lblMonthTitle";
-            this.lblMonthTitle.Size = new System.Drawing.Size(51, 20);
+            this.lblMonthTitle.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.lblMonthTitle.Size = new System.Drawing.Size(69, 25);
             this.lblMonthTitle.TabIndex = 1;
             this.lblMonthTitle.Text = "label1";
             this.lblMonthTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -129,22 +131,28 @@
             // btnPrevMonth
             // 
             this.btnPrevMonth.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnPrevMonth.Location = new System.Drawing.Point(490, 0);
+            this.btnPrevMonth.FlatAppearance.BorderSize = 0;
+            this.btnPrevMonth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrevMonth.ForeColor = System.Drawing.Color.Crimson;
+            this.btnPrevMonth.Image = ((System.Drawing.Image)(resources.GetObject("btnPrevMonth.Image")));
+            this.btnPrevMonth.Location = new System.Drawing.Point(389, 0);
             this.btnPrevMonth.Name = "btnPrevMonth";
             this.btnPrevMonth.Size = new System.Drawing.Size(75, 37);
             this.btnPrevMonth.TabIndex = 0;
-            this.btnPrevMonth.Text = "הקודם";
             this.btnPrevMonth.UseVisualStyleBackColor = true;
             this.btnPrevMonth.Click += new System.EventHandler(this.btnPrevMonth_Click);
             // 
             // btnNextMonth
             // 
             this.btnNextMonth.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnNextMonth.FlatAppearance.BorderSize = 0;
+            this.btnNextMonth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNextMonth.ForeColor = System.Drawing.Color.Crimson;
+            this.btnNextMonth.Image = ((System.Drawing.Image)(resources.GetObject("btnNextMonth.Image")));
             this.btnNextMonth.Location = new System.Drawing.Point(0, 0);
             this.btnNextMonth.Name = "btnNextMonth";
             this.btnNextMonth.Size = new System.Drawing.Size(75, 37);
             this.btnNextMonth.TabIndex = 0;
-            this.btnNextMonth.Text = "הבא";
             this.btnNextMonth.UseVisualStyleBackColor = true;
             this.btnNextMonth.Click += new System.EventHandler(this.btnNextMonth_Click);
             // 
