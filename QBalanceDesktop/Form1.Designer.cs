@@ -37,11 +37,11 @@
             this.btnSync = new System.Windows.Forms.Button();
             this.gbMain = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.pnlMonth = new System.Windows.Forms.Panel();
             this.lblMonthTitle = new System.Windows.Forms.Label();
             this.btnPrevMonth = new System.Windows.Forms.Button();
             this.btnNextMonth = new System.Windows.Forms.Button();
-            this.budgetTreeView1 = new QBalanceDesktop.UI.BudgetTreeView();
             this.gbActions.SuspendLayout();
             this.gbMain.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -120,8 +120,9 @@
             // 
             // gbMain
             // 
-            this.gbMain.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.gbMain.BackColor = System.Drawing.SystemColors.WindowText;
             this.gbMain.Controls.Add(this.panel1);
+            this.gbMain.ForeColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.gbMain.Location = new System.Drawing.Point(181, 92);
             this.gbMain.Name = "gbMain";
             this.gbMain.Size = new System.Drawing.Size(1003, 334);
@@ -130,16 +131,26 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.budgetTreeView1);
+            this.panel1.Controls.Add(this.flowLayoutPanel1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(565, 19);
+            this.panel1.Location = new System.Drawing.Point(197, 19);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(435, 312);
+            this.panel1.Size = new System.Drawing.Size(803, 312);
             this.panel1.TabIndex = 1;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.BackColor = System.Drawing.SystemColors.Control;
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(803, 312);
+            this.flowLayoutPanel1.TabIndex = 0;
             // 
             // pnlMonth
             // 
-            this.pnlMonth.BackColor = System.Drawing.Color.Tomato;
+            this.pnlMonth.BackColor = System.Drawing.SystemColors.Control;
             this.pnlMonth.Controls.Add(this.lblMonthTitle);
             this.pnlMonth.Controls.Add(this.btnPrevMonth);
             this.pnlMonth.Controls.Add(this.btnNextMonth);
@@ -150,15 +161,12 @@
             // 
             // lblMonthTitle
             // 
-            this.lblMonthTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblMonthTitle.AutoSize = true;
+            this.lblMonthTitle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblMonthTitle.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblMonthTitle.Location = new System.Drawing.Point(241, 8);
+            this.lblMonthTitle.Location = new System.Drawing.Point(75, 0);
             this.lblMonthTitle.Name = "lblMonthTitle";
             this.lblMonthTitle.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.lblMonthTitle.Size = new System.Drawing.Size(69, 25);
+            this.lblMonthTitle.Size = new System.Drawing.Size(314, 37);
             this.lblMonthTitle.TabIndex = 1;
             this.lblMonthTitle.Text = "label1";
             this.lblMonthTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -191,14 +199,6 @@
             this.btnNextMonth.UseVisualStyleBackColor = true;
             this.btnNextMonth.Click += new System.EventHandler(this.btnNextMonth_Click);
             // 
-            // budgetTreeView1
-            // 
-            this.budgetTreeView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.budgetTreeView1.Location = new System.Drawing.Point(0, 0);
-            this.budgetTreeView1.Name = "budgetTreeView1";
-            this.budgetTreeView1.Size = new System.Drawing.Size(435, 312);
-            this.budgetTreeView1.TabIndex = 0;
-            // 
             // BaseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -217,7 +217,6 @@
             this.gbMain.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.pnlMonth.ResumeLayout(false);
-            this.pnlMonth.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -236,7 +235,7 @@
         private System.Windows.Forms.Button btnNextMonth;
         private System.Windows.Forms.Button btnIncrementMonth;
         private System.Windows.Forms.Panel panel1;
-        private UI.BudgetTreeView budgetTreeView1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }
 

@@ -8,6 +8,8 @@ namespace QBalanceDesktop.UI
     public  class CategoryTreeNode : TreeNode
     {
         private ComboBox m_ComboBox = new ComboBox();
+
+        public Label Display { get; set; }
         public ComboBox ComboBox
         {
             get
@@ -24,7 +26,8 @@ namespace QBalanceDesktop.UI
 
         public CategoryTreeNode(string text) : base(text)
         {
-
+            Display = new Label();
+            Display.Text = text;
         }
     }
 }

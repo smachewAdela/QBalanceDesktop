@@ -13,36 +13,35 @@ namespace QBalanceDesktop.UI
 
         private CategoryTreeNode m_CurrentNode = null;
 
-        protected override void
-                  OnNodeMouseClick(TreeNodeMouseClickEventArgs e)
+        protected override void  OnNodeMouseClick(TreeNodeMouseClickEventArgs e)
         {
             // Are we dealing with a dropdown node?
             if (e.Node is CategoryTreeNode)
             {
                 this.m_CurrentNode = (CategoryTreeNode)e.Node;
 
-                // Need to add the node's ComboBox to the
+                //// Need to add the node's ComboBox to the
                 // TreeView's list of controls for it to work
-                this.Controls.Add(this.m_CurrentNode.ComboBox);
+                this.Controls.Add(this.m_CurrentNode.Display);
 
-                // Set the bounds of the ComboBox, with
-                // a little adjustment to make it look right
-                this.m_CurrentNode.ComboBox.SetBounds(
-                    this.m_CurrentNode.Bounds.X - 1,
-                    this.m_CurrentNode.Bounds.Y - 2,
-                    this.m_CurrentNode.Bounds.Width + 25,
-                    this.m_CurrentNode.Bounds.Height);
+                //// Set the bounds of the ComboBox, with
+                //// a little adjustment to make it look right
+                //this.m_CurrentNode.ComboBox.SetBounds(
+                //    this.m_CurrentNode.Bounds.X - 1,
+                //    this.m_CurrentNode.Bounds.Y - 2,
+                //    this.m_CurrentNode.Bounds.Width + 25,
+                //    this.m_CurrentNode.Bounds.Height);
 
-                // Listen to the SelectedValueChanged
-                // event of the node's ComboBox
-                this.m_CurrentNode.ComboBox.SelectedValueChanged +=
-                   new EventHandler(ComboBox_SelectedValueChanged);
-                this.m_CurrentNode.ComboBox.DropDownClosed +=
-                   new EventHandler(ComboBox_DropDownClosed);
+                //// Listen to the SelectedValueChanged
+                //// event of the node's ComboBox
+                //this.m_CurrentNode.ComboBox.SelectedValueChanged +=
+                //   new EventHandler(ComboBox_SelectedValueChanged);
+                //this.m_CurrentNode.ComboBox.DropDownClosed +=
+                //   new EventHandler(ComboBox_DropDownClosed);
 
-                // Now show the ComboBox
-                this.m_CurrentNode.ComboBox.Show();
-                this.m_CurrentNode.ComboBox.DroppedDown = true;
+                //// Now show the ComboBox
+                //this.m_CurrentNode.ComboBox.Show();
+                //this.m_CurrentNode.ComboBox.DroppedDown = true;
             }
             base.OnNodeMouseClick(e);
         }

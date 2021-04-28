@@ -61,6 +61,13 @@ namespace QBalanceDesktop
                 }
                 dbField.SetValue(this, dbVal);
             }
+
+            LoadExtraData();
+        }
+
+        public virtual void LoadExtraData()
+        {
+            
         }
 
         public void SetDbIdentity(int newId)
