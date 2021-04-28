@@ -36,6 +36,8 @@ namespace QBalanceDesktop
                         d = d.AddMonths(-1);
                     } 
                     while (b==null);
+
+                    b.Items = Db.GetData<BudgetItem>(new SearchParameters { BudgetItemBudgetId = b.Id });
                 }
                 return b;
             }

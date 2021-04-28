@@ -84,6 +84,11 @@ namespace QBalanceDesktop
                 param.Add("Month=@Month");
                 innerParams.Add(new DbParam("@Month", parameters.BudgetDate.Value));
             }
+            if (parameters.BudgetItemBudgetId.HasValue)
+            {
+                param.Add("BudgetId=@BudgetId");
+                innerParams.Add(new DbParam("@BudgetId", parameters.BudgetItemBudgetId.Value));
+            }
             return param;
         }
     }

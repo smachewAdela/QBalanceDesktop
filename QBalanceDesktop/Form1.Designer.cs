@@ -71,7 +71,6 @@
             // btnIncrementMonth
             // 
             this.btnIncrementMonth.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnIncrementMonth.Enabled = false;
             this.btnIncrementMonth.FlatAppearance.BorderSize = 0;
             this.btnIncrementMonth.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnIncrementMonth.Location = new System.Drawing.Point(3, 19);
@@ -80,6 +79,7 @@
             this.btnIncrementMonth.TabIndex = 0;
             this.btnIncrementMonth.Text = "Increment";
             this.btnIncrementMonth.UseVisualStyleBackColor = true;
+            this.btnIncrementMonth.Click += new System.EventHandler(this.btnIncrementMonth_Click);
             // 
             // btnMigrate
             // 
