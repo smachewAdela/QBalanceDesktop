@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QBalanceDesktop.UI;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
@@ -39,14 +40,25 @@ namespace QBalanceDesktop
             //};
             //Db.Insert(b);
             currentBudget = GlobalsProviderBL.CurrentBudget;
+            LoadBL();
+        }
 
+        private void LoadBL()
+        {
+          
+            TreeNode tn1 = new TreeNode("Test Node 1");
+            CategoryTreeNode tn2 = new CategoryTreeNode("Test Node 2");
+            // Legal!  This is how you would normally do it.
+            budgetTreeView1.Nodes.Add(tn1);
+            // Also legal!  Through inheritance, a DropDownTreeNode is a TreeNode.
+            budgetTreeView1.Nodes.Add(tn2);
         }
 
         private void ArrangeLocations()
         {
 
             CenterToScreen();
-            var delemeter = 30;
+            var delemeter = 45;
             var formWidth = this.Width;
             var formHeight = this.Height;
 

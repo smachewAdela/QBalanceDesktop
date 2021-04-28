@@ -36,11 +36,15 @@
             this.btnScan = new System.Windows.Forms.Button();
             this.btnSync = new System.Windows.Forms.Button();
             this.gbMain = new System.Windows.Forms.GroupBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.pnlMonth = new System.Windows.Forms.Panel();
             this.lblMonthTitle = new System.Windows.Forms.Label();
             this.btnPrevMonth = new System.Windows.Forms.Button();
             this.btnNextMonth = new System.Windows.Forms.Button();
+            this.budgetTreeView1 = new QBalanceDesktop.UI.BudgetTreeView();
             this.gbActions.SuspendLayout();
+            this.gbMain.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.pnlMonth.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -117,11 +121,21 @@
             // gbMain
             // 
             this.gbMain.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.gbMain.Controls.Add(this.panel1);
             this.gbMain.Location = new System.Drawing.Point(181, 92);
             this.gbMain.Name = "gbMain";
             this.gbMain.Size = new System.Drawing.Size(1003, 334);
             this.gbMain.TabIndex = 1;
             this.gbMain.TabStop = false;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.budgetTreeView1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel1.Location = new System.Drawing.Point(565, 19);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(435, 312);
+            this.panel1.TabIndex = 1;
             // 
             // pnlMonth
             // 
@@ -177,6 +191,14 @@
             this.btnNextMonth.UseVisualStyleBackColor = true;
             this.btnNextMonth.Click += new System.EventHandler(this.btnNextMonth_Click);
             // 
+            // budgetTreeView1
+            // 
+            this.budgetTreeView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.budgetTreeView1.Location = new System.Drawing.Point(0, 0);
+            this.budgetTreeView1.Name = "budgetTreeView1";
+            this.budgetTreeView1.Size = new System.Drawing.Size(435, 312);
+            this.budgetTreeView1.TabIndex = 0;
+            // 
             // BaseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -192,6 +214,8 @@
             this.Load += new System.EventHandler(this.BaseForm_Load);
             this.Resize += new System.EventHandler(this.BaseForm_Resize);
             this.gbActions.ResumeLayout(false);
+            this.gbMain.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.pnlMonth.ResumeLayout(false);
             this.pnlMonth.PerformLayout();
             this.ResumeLayout(false);
@@ -211,6 +235,8 @@
         private System.Windows.Forms.Button btnPrevMonth;
         private System.Windows.Forms.Button btnNextMonth;
         private System.Windows.Forms.Button btnIncrementMonth;
+        private System.Windows.Forms.Panel panel1;
+        private UI.BudgetTreeView budgetTreeView1;
     }
 }
 
