@@ -29,46 +29,63 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BaseForm));
-            this.button1 = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.gbActions = new System.Windows.Forms.GroupBox();
+            this.btnIncrementMonth = new System.Windows.Forms.Button();
             this.btnMigrate = new System.Windows.Forms.Button();
             this.btnScan = new System.Windows.Forms.Button();
             this.btnSync = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.gbMain = new System.Windows.Forms.GroupBox();
+            this.pnlMonth = new System.Windows.Forms.Panel();
             this.lblMonthTitle = new System.Windows.Forms.Label();
             this.btnPrevMonth = new System.Windows.Forms.Button();
             this.btnNextMonth = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.gbActions.SuspendLayout();
+            this.pnlMonth.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button1
+            // btnExit
             // 
-            this.button1.Location = new System.Drawing.Point(1013, 432);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(171, 32);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Exit";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnExit.Location = new System.Drawing.Point(1013, 432);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(171, 32);
+            this.btnExit.TabIndex = 0;
+            this.btnExit.Text = "Exit";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.button1_Click);
             // 
-            // groupBox1
+            // gbActions
             // 
-            this.groupBox1.Controls.Add(this.btnMigrate);
-            this.groupBox1.Controls.Add(this.btnScan);
-            this.groupBox1.Controls.Add(this.btnSync);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(153, 99);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Actions";
+            this.gbActions.BackColor = System.Drawing.Color.Goldenrod;
+            this.gbActions.Controls.Add(this.btnIncrementMonth);
+            this.gbActions.Controls.Add(this.btnMigrate);
+            this.gbActions.Controls.Add(this.btnScan);
+            this.gbActions.Controls.Add(this.btnSync);
+            this.gbActions.Location = new System.Drawing.Point(12, 12);
+            this.gbActions.Name = "gbActions";
+            this.gbActions.Size = new System.Drawing.Size(153, 414);
+            this.gbActions.TabIndex = 1;
+            this.gbActions.TabStop = false;
+            this.gbActions.Text = "Actions";
+            // 
+            // btnIncrementMonth
+            // 
+            this.btnIncrementMonth.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnIncrementMonth.Enabled = false;
+            this.btnIncrementMonth.FlatAppearance.BorderSize = 0;
+            this.btnIncrementMonth.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnIncrementMonth.Location = new System.Drawing.Point(3, 19);
+            this.btnIncrementMonth.Name = "btnIncrementMonth";
+            this.btnIncrementMonth.Size = new System.Drawing.Size(147, 23);
+            this.btnIncrementMonth.TabIndex = 0;
+            this.btnIncrementMonth.Text = "Increment";
+            this.btnIncrementMonth.UseVisualStyleBackColor = true;
             // 
             // btnMigrate
             // 
             this.btnMigrate.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnMigrate.Location = new System.Drawing.Point(3, 27);
+            this.btnMigrate.Enabled = false;
+            this.btnMigrate.Location = new System.Drawing.Point(3, 342);
             this.btnMigrate.Name = "btnMigrate";
             this.btnMigrate.Size = new System.Drawing.Size(147, 23);
             this.btnMigrate.TabIndex = 0;
@@ -78,7 +95,8 @@
             // btnScan
             // 
             this.btnScan.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnScan.Location = new System.Drawing.Point(3, 50);
+            this.btnScan.Enabled = false;
+            this.btnScan.Location = new System.Drawing.Point(3, 365);
             this.btnScan.Name = "btnScan";
             this.btnScan.Size = new System.Drawing.Size(147, 23);
             this.btnScan.TabIndex = 0;
@@ -88,30 +106,33 @@
             // btnSync
             // 
             this.btnSync.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnSync.Location = new System.Drawing.Point(3, 73);
+            this.btnSync.Enabled = false;
+            this.btnSync.Location = new System.Drawing.Point(3, 388);
             this.btnSync.Name = "btnSync";
             this.btnSync.Size = new System.Drawing.Size(147, 23);
             this.btnSync.TabIndex = 0;
             this.btnSync.Text = "Sync";
             this.btnSync.UseVisualStyleBackColor = true;
             // 
-            // groupBox2
+            // gbMain
             // 
-            this.groupBox2.Location = new System.Drawing.Point(181, 92);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1003, 334);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
+            this.gbMain.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.gbMain.Location = new System.Drawing.Point(181, 92);
+            this.gbMain.Name = "gbMain";
+            this.gbMain.Size = new System.Drawing.Size(1003, 334);
+            this.gbMain.TabIndex = 1;
+            this.gbMain.TabStop = false;
             // 
-            // panel1
+            // pnlMonth
             // 
-            this.panel1.Controls.Add(this.lblMonthTitle);
-            this.panel1.Controls.Add(this.btnPrevMonth);
-            this.panel1.Controls.Add(this.btnNextMonth);
-            this.panel1.Location = new System.Drawing.Point(409, 39);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(464, 37);
-            this.panel1.TabIndex = 2;
+            this.pnlMonth.BackColor = System.Drawing.Color.Tomato;
+            this.pnlMonth.Controls.Add(this.lblMonthTitle);
+            this.pnlMonth.Controls.Add(this.btnPrevMonth);
+            this.pnlMonth.Controls.Add(this.btnNextMonth);
+            this.pnlMonth.Location = new System.Drawing.Point(409, 39);
+            this.pnlMonth.Name = "pnlMonth";
+            this.pnlMonth.Size = new System.Drawing.Size(464, 37);
+            this.pnlMonth.TabIndex = 2;
             // 
             // lblMonthTitle
             // 
@@ -161,32 +182,35 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1211, 472);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.pnlMonth);
+            this.Controls.Add(this.gbMain);
+            this.Controls.Add(this.gbActions);
+            this.Controls.Add(this.btnExit);
             this.Name = "BaseForm";
             this.Text = "Form1";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.BaseForm_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.Resize += new System.EventHandler(this.BaseForm_Resize);
+            this.gbActions.ResumeLayout(false);
+            this.pnlMonth.ResumeLayout(false);
+            this.pnlMonth.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.GroupBox gbActions;
         private System.Windows.Forms.Button btnSync;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox gbMain;
         private System.Windows.Forms.Button btnScan;
         private System.Windows.Forms.Button btnMigrate;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnlMonth;
         private System.Windows.Forms.Label lblMonthTitle;
         private System.Windows.Forms.Button btnPrevMonth;
         private System.Windows.Forms.Button btnNextMonth;
+        private System.Windows.Forms.Button btnIncrementMonth;
     }
 }
 

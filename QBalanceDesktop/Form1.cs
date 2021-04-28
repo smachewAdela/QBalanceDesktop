@@ -26,6 +26,7 @@ namespace QBalanceDesktop
         public BaseForm()
         {
             InitializeComponent();
+            ArrangeLocations();
             //ProfileManager.LoadProfile();
 
             //var items = Db.GetData<BudgetItem>(new SearchParameters());
@@ -39,6 +40,24 @@ namespace QBalanceDesktop
             //Db.Insert(b);
             currentBudget = GlobalsProviderBL.CurrentBudget;
 
+        }
+
+        private void ArrangeLocations()
+        {
+
+            CenterToScreen();
+            var delemeter = 30;
+            var formWidth = this.Width;
+            var formHeight = this.Height;
+
+            
+            gbActions.Location = new Point(delemeter, delemeter);
+            pnlMonth.Location = new Point(gbActions.Location.X + gbActions.Width + delemeter, 5);
+            btnExit.Location = new Point(formWidth - btnExit.Width - delemeter, formHeight - btnExit.Height - delemeter);
+
+            gbMain.Location = new Point(gbActions.Location.X + gbActions.Width +  delemeter, delemeter);
+            gbMain.Width = formWidth - delemeter *3 - gbActions.Width;
+            gbMain.Height = formHeight - delemeter * 3 - btnExit.Height;
         }
 
         private void BaseForm_Load(object sender, EventArgs e)
@@ -107,6 +126,11 @@ namespace QBalanceDesktop
             {
                 MessageBox.Show("החודש הקודם טרם הוגדר");
             }
+        }
+
+        private void BaseForm_Resize(object sender, EventArgs e)
+        {
+            ArrangeLocations();
         }
     }
 }
