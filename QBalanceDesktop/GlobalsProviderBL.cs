@@ -41,5 +41,26 @@ namespace QBalanceDesktop
                 return b;
             }
         }
+
+        internal static void IncrementMonth()
+        {
+            var nextMonth = CurrentBudget.Month.AddMonths(1);
+            if (nextMonth <= DateTime.Now)
+            {
+                var nextMonthI = new Budget { Month = nextMonth };
+                Db.Insert(nextMonthI);
+
+
+                if (nextMonthI.Id > CurrentBudget.Id)
+                {
+                    foreach (var item in CurrentBudget.Items)
+                    {
+                        item.BudgetId = nextMonthI.Id;
+                        item.StatusAmount = 0;
+                        Db.Insert(item);
+                    }
+                }
+            }
+        }
     }
 }

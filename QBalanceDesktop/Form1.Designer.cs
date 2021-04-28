@@ -30,22 +30,27 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BaseForm));
             this.btnExit = new System.Windows.Forms.Button();
-            this.gbActions = new System.Windows.Forms.GroupBox();
-            this.btnIncrementMonth = new System.Windows.Forms.Button();
-            this.btnMigrate = new System.Windows.Forms.Button();
-            this.btnScan = new System.Windows.Forms.Button();
-            this.btnSync = new System.Windows.Forms.Button();
             this.gbMain = new System.Windows.Forms.GroupBox();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnNavBudget = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.pnlMonth = new System.Windows.Forms.Panel();
             this.lblMonthTitle = new System.Windows.Forms.Label();
             this.btnPrevMonth = new System.Windows.Forms.Button();
             this.btnNextMonth = new System.Windows.Forms.Button();
-            this.gbActions.SuspendLayout();
+            this.btnSync = new System.Windows.Forms.Button();
+            this.btnScan = new System.Windows.Forms.Button();
+            this.btnMigrate = new System.Windows.Forms.Button();
+            this.btnIncrementMonth = new System.Windows.Forms.Button();
+            this.gbActions = new System.Windows.Forms.GroupBox();
             this.gbMain.SuspendLayout();
             this.panel1.SuspendLayout();
             this.pnlMonth.SuspendLayout();
+            this.gbActions.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnExit
@@ -58,69 +63,14 @@
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.button1_Click);
             // 
-            // gbActions
-            // 
-            this.gbActions.BackColor = System.Drawing.Color.Goldenrod;
-            this.gbActions.Controls.Add(this.btnIncrementMonth);
-            this.gbActions.Controls.Add(this.btnMigrate);
-            this.gbActions.Controls.Add(this.btnScan);
-            this.gbActions.Controls.Add(this.btnSync);
-            this.gbActions.Location = new System.Drawing.Point(12, 12);
-            this.gbActions.Name = "gbActions";
-            this.gbActions.Size = new System.Drawing.Size(153, 414);
-            this.gbActions.TabIndex = 1;
-            this.gbActions.TabStop = false;
-            this.gbActions.Text = "Actions";
-            // 
-            // btnIncrementMonth
-            // 
-            this.btnIncrementMonth.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnIncrementMonth.FlatAppearance.BorderSize = 0;
-            this.btnIncrementMonth.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnIncrementMonth.Location = new System.Drawing.Point(3, 19);
-            this.btnIncrementMonth.Name = "btnIncrementMonth";
-            this.btnIncrementMonth.Size = new System.Drawing.Size(147, 23);
-            this.btnIncrementMonth.TabIndex = 0;
-            this.btnIncrementMonth.Text = "Increment";
-            this.btnIncrementMonth.UseVisualStyleBackColor = true;
-            this.btnIncrementMonth.Click += new System.EventHandler(this.btnIncrementMonth_Click);
-            // 
-            // btnMigrate
-            // 
-            this.btnMigrate.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnMigrate.Enabled = false;
-            this.btnMigrate.Location = new System.Drawing.Point(3, 342);
-            this.btnMigrate.Name = "btnMigrate";
-            this.btnMigrate.Size = new System.Drawing.Size(147, 23);
-            this.btnMigrate.TabIndex = 0;
-            this.btnMigrate.Text = "Migrate";
-            this.btnMigrate.UseVisualStyleBackColor = true;
-            // 
-            // btnScan
-            // 
-            this.btnScan.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnScan.Enabled = false;
-            this.btnScan.Location = new System.Drawing.Point(3, 365);
-            this.btnScan.Name = "btnScan";
-            this.btnScan.Size = new System.Drawing.Size(147, 23);
-            this.btnScan.TabIndex = 0;
-            this.btnScan.Text = "Scan";
-            this.btnScan.UseVisualStyleBackColor = true;
-            // 
-            // btnSync
-            // 
-            this.btnSync.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnSync.Enabled = false;
-            this.btnSync.Location = new System.Drawing.Point(3, 388);
-            this.btnSync.Name = "btnSync";
-            this.btnSync.Size = new System.Drawing.Size(147, 23);
-            this.btnSync.TabIndex = 0;
-            this.btnSync.Text = "Sync";
-            this.btnSync.UseVisualStyleBackColor = true;
-            // 
             // gbMain
             // 
             this.gbMain.BackColor = System.Drawing.SystemColors.WindowText;
+            this.gbMain.Controls.Add(this.button4);
+            this.gbMain.Controls.Add(this.button3);
+            this.gbMain.Controls.Add(this.button2);
+            this.gbMain.Controls.Add(this.button1);
+            this.gbMain.Controls.Add(this.btnNavBudget);
             this.gbMain.Controls.Add(this.panel1);
             this.gbMain.ForeColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.gbMain.Location = new System.Drawing.Point(181, 92);
@@ -129,13 +79,73 @@
             this.gbMain.TabIndex = 1;
             this.gbMain.TabStop = false;
             // 
+            // button4
+            // 
+            this.button4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button4.Location = new System.Drawing.Point(3, 167);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(118, 37);
+            this.button4.TabIndex = 2;
+            this.button4.Text = "הגדרות";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button3.Location = new System.Drawing.Point(3, 130);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(118, 37);
+            this.button3.TabIndex = 2;
+            this.button3.Text = "דוחות";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button2.Location = new System.Drawing.Point(3, 93);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(118, 37);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "הכנסות";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button1.Location = new System.Drawing.Point(3, 56);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(118, 37);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "קטגוריות";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // btnNavBudget
+            // 
+            this.btnNavBudget.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnNavBudget.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNavBudget.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnNavBudget.Location = new System.Drawing.Point(3, 19);
+            this.btnNavBudget.Name = "btnNavBudget";
+            this.btnNavBudget.Size = new System.Drawing.Size(118, 37);
+            this.btnNavBudget.TabIndex = 2;
+            this.btnNavBudget.Text = "תקציב";
+            this.btnNavBudget.UseVisualStyleBackColor = true;
+            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.flowLayoutPanel1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(197, 19);
+            this.panel1.Location = new System.Drawing.Point(121, 19);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(803, 312);
+            this.panel1.Size = new System.Drawing.Size(879, 312);
             this.panel1.TabIndex = 1;
             // 
             // flowLayoutPanel1
@@ -145,7 +155,7 @@
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(803, 312);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(879, 312);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // pnlMonth
@@ -199,6 +209,66 @@
             this.btnNextMonth.UseVisualStyleBackColor = true;
             this.btnNextMonth.Click += new System.EventHandler(this.btnNextMonth_Click);
             // 
+            // btnSync
+            // 
+            this.btnSync.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnSync.Enabled = false;
+            this.btnSync.Location = new System.Drawing.Point(3, 388);
+            this.btnSync.Name = "btnSync";
+            this.btnSync.Size = new System.Drawing.Size(147, 23);
+            this.btnSync.TabIndex = 0;
+            this.btnSync.Text = "Sync";
+            this.btnSync.UseVisualStyleBackColor = true;
+            // 
+            // btnScan
+            // 
+            this.btnScan.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnScan.Enabled = false;
+            this.btnScan.Location = new System.Drawing.Point(3, 365);
+            this.btnScan.Name = "btnScan";
+            this.btnScan.Size = new System.Drawing.Size(147, 23);
+            this.btnScan.TabIndex = 0;
+            this.btnScan.Text = "Scan";
+            this.btnScan.UseVisualStyleBackColor = true;
+            // 
+            // btnMigrate
+            // 
+            this.btnMigrate.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnMigrate.Enabled = false;
+            this.btnMigrate.Location = new System.Drawing.Point(3, 342);
+            this.btnMigrate.Name = "btnMigrate";
+            this.btnMigrate.Size = new System.Drawing.Size(147, 23);
+            this.btnMigrate.TabIndex = 0;
+            this.btnMigrate.Text = "Migrate";
+            this.btnMigrate.UseVisualStyleBackColor = true;
+            // 
+            // btnIncrementMonth
+            // 
+            this.btnIncrementMonth.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnIncrementMonth.FlatAppearance.BorderSize = 0;
+            this.btnIncrementMonth.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnIncrementMonth.Location = new System.Drawing.Point(3, 19);
+            this.btnIncrementMonth.Name = "btnIncrementMonth";
+            this.btnIncrementMonth.Size = new System.Drawing.Size(147, 23);
+            this.btnIncrementMonth.TabIndex = 0;
+            this.btnIncrementMonth.Text = "Increment";
+            this.btnIncrementMonth.UseVisualStyleBackColor = true;
+            this.btnIncrementMonth.Click += new System.EventHandler(this.btnIncrementMonth_Click);
+            // 
+            // gbActions
+            // 
+            this.gbActions.BackColor = System.Drawing.Color.Goldenrod;
+            this.gbActions.Controls.Add(this.btnIncrementMonth);
+            this.gbActions.Controls.Add(this.btnMigrate);
+            this.gbActions.Controls.Add(this.btnScan);
+            this.gbActions.Controls.Add(this.btnSync);
+            this.gbActions.Location = new System.Drawing.Point(12, 12);
+            this.gbActions.Name = "gbActions";
+            this.gbActions.Size = new System.Drawing.Size(153, 414);
+            this.gbActions.TabIndex = 1;
+            this.gbActions.TabStop = false;
+            this.gbActions.Text = "Actions";
+            // 
             // BaseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -213,10 +283,10 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.BaseForm_Load);
             this.Resize += new System.EventHandler(this.BaseForm_Resize);
-            this.gbActions.ResumeLayout(false);
             this.gbMain.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.pnlMonth.ResumeLayout(false);
+            this.gbActions.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -224,18 +294,23 @@
         #endregion
 
         private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.GroupBox gbActions;
-        private System.Windows.Forms.Button btnSync;
         private System.Windows.Forms.GroupBox gbMain;
-        private System.Windows.Forms.Button btnScan;
-        private System.Windows.Forms.Button btnMigrate;
         private System.Windows.Forms.Panel pnlMonth;
         private System.Windows.Forms.Label lblMonthTitle;
         private System.Windows.Forms.Button btnPrevMonth;
         private System.Windows.Forms.Button btnNextMonth;
-        private System.Windows.Forms.Button btnIncrementMonth;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Button btnNavBudget;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSync;
+        private System.Windows.Forms.Button btnScan;
+        private System.Windows.Forms.Button btnMigrate;
+        private System.Windows.Forms.Button btnIncrementMonth;
+        private System.Windows.Forms.GroupBox gbActions;
     }
 }
 

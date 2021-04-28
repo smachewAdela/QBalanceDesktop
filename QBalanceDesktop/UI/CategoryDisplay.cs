@@ -45,7 +45,7 @@ namespace QBalanceDesktop.UI
         {
             get
             {
-                return pnlIndex.BackColor;
+                return lblIndex.ForeColor;
             }
             set
             {
@@ -76,5 +76,7 @@ namespace QBalanceDesktop.UI
                 txAmount.Text = string.Empty;
             }
         }
+
+       
     }
 }
