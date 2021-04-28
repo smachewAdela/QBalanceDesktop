@@ -29,29 +29,29 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CategoryDisplay));
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlIndex = new System.Windows.Forms.Panel();
             this.lblIndex = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.pnlDelemeter = new System.Windows.Forms.Panel();
             this.lblCategoryName = new System.Windows.Forms.Label();
             this.lblStatusAmount = new System.Windows.Forms.Label();
             this.txAmount = new System.Windows.Forms.TextBox();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
+            this.pnlIndex.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // pnlIndex
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.panel1.Controls.Add(this.lblIndex);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(40, 49);
-            this.panel1.TabIndex = 0;
+            this.pnlIndex.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.pnlIndex.Controls.Add(this.lblIndex);
+            this.pnlIndex.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlIndex.Location = new System.Drawing.Point(0, 0);
+            this.pnlIndex.Name = "pnlIndex";
+            this.pnlIndex.Size = new System.Drawing.Size(40, 49);
+            this.pnlIndex.TabIndex = 0;
             // 
             // lblIndex
             // 
-            this.lblIndex.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.lblIndex.BackColor = System.Drawing.SystemColors.Desktop;
             this.lblIndex.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblIndex.Font = new System.Drawing.Font("Segoe UI", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.lblIndex.ForeColor = System.Drawing.Color.DodgerBlue;
@@ -62,14 +62,14 @@
             this.lblIndex.Text = "label1";
             this.lblIndex.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panel2
+            // pnlDelemeter
             // 
-            this.panel2.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(40, 47);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(697, 2);
-            this.panel2.TabIndex = 0;
+            this.pnlDelemeter.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.pnlDelemeter.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlDelemeter.Location = new System.Drawing.Point(40, 47);
+            this.pnlDelemeter.Name = "pnlDelemeter";
+            this.pnlDelemeter.Size = new System.Drawing.Size(697, 2);
+            this.pnlDelemeter.TabIndex = 0;
             // 
             // lblCategoryName
             // 
@@ -87,7 +87,7 @@
             // 
             this.lblStatusAmount.Dock = System.Windows.Forms.DockStyle.Left;
             this.lblStatusAmount.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblStatusAmount.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.lblStatusAmount.ForeColor = System.Drawing.Color.AliceBlue;
             this.lblStatusAmount.Location = new System.Drawing.Point(261, 0);
             this.lblStatusAmount.Name = "lblStatusAmount";
             this.lblStatusAmount.Size = new System.Drawing.Size(130, 47);
@@ -100,11 +100,11 @@
             this.txAmount.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txAmount.BackColor = System.Drawing.SystemColors.Control;
+            this.txAmount.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.txAmount.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txAmount.Location = new System.Drawing.Point(416, 10);
+            this.txAmount.Location = new System.Drawing.Point(421, 10);
             this.txAmount.Name = "txAmount";
-            this.txAmount.Size = new System.Drawing.Size(181, 20);
+            this.txAmount.Size = new System.Drawing.Size(176, 27);
             this.txAmount.TabIndex = 2;
             this.txAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -126,15 +126,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.txAmount);
             this.Controls.Add(this.lblStatusAmount);
             this.Controls.Add(this.lblCategoryName);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnlDelemeter);
+            this.Controls.Add(this.pnlIndex);
             this.Name = "CategoryDisplay";
             this.Size = new System.Drawing.Size(737, 49);
-            this.panel1.ResumeLayout(false);
+            this.pnlIndex.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -142,8 +143,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel pnlIndex;
+        private System.Windows.Forms.Panel pnlDelemeter;
         private System.Windows.Forms.Label lblCategoryName;
         private System.Windows.Forms.Label lblStatusAmount;
         private System.Windows.Forms.TextBox txAmount;

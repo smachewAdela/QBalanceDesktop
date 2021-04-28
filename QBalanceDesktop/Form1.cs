@@ -15,7 +15,7 @@ namespace QBalanceDesktop
     public partial class BaseForm : Form
     {
         public Budget currentBudget { get; set; }
-
+        public Dictionary<int, Color> GroupColors { get; set; }
         public DbAccess Db
         {
             get
@@ -23,16 +23,26 @@ namespace QBalanceDesktop
                 return GlobalsProviderBL.Db;
             }
         }
+        private Random rnd = new Random();
 
         public BaseForm()
         {
             InitializeComponent();
             ArrangeLocations();
             //ProfileManager.LoadProfile();
-
+           
             currentBudget = GlobalsProviderBL.CurrentBudget;
         }
 
+        private void LoadGroupColors()
+        {
+            GroupColors = new Dictionary<int, Color>();
+            var groups = Db.GetData<BudgetGroup>(new SearchParameters());
+            foreach (var item in groups)
+            {
+                GroupColors.Add(item.Id, Color.FromArgb(rnd.Next(256), rnd.Next(256), rnd.Next(256)));
+            }
+        }
 
         private void ArrangeLocations()
         {
@@ -59,12 +69,14 @@ namespace QBalanceDesktop
 
         private void LoadView()
         {
+            if(GroupColors == null)
+                LoadGroupColors();
             flowLayoutPanel1.Controls.Clear();
             lblMonthTitle.Text = currentBudget.Title;
             var idx = 1;
-            foreach (var item in currentBudget.Items)
+            foreach (var item in currentBudget.Items.OrderBy(x => x.GroupId).ToList())
             {
-                var cd = new CategoryDisplay { BudgetItem = item, Index = idx++ };
+                var cd = new CategoryDisplay { BudgetItem = item, Index = idx++, IColor = GroupColors[item.GroupId] };
                 flowLayoutPanel1.Controls.Add(cd);
             }
         }
@@ -80,6 +92,7 @@ namespace QBalanceDesktop
             if (nextM != null)
             {
                 currentBudget = nextM;
+                LoadGroupColors();
                 LoadView();
             }
             else
@@ -94,6 +107,7 @@ namespace QBalanceDesktop
             if (pre != null)
             {
                 currentBudget = pre;
+                LoadGroupColors();
                 LoadView();
             }
             else

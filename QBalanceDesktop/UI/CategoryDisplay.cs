@@ -41,10 +41,29 @@ namespace QBalanceDesktop.UI
             }
         }
 
+        public Color IColor
+        {
+            get
+            {
+                return pnlIndex.BackColor;
+            }
+            set
+            {
+               lblIndex.ForeColor = 
+                pnlDelemeter.BackColor = value;
+            }
+        }
+
         private void SetValues(BudgetItem value)
         {
-            lblCategoryName.Text = $"{value.CategoryName} [{value.BudgetAmount}]";
-            lblStatusAmount.Text = value.StatusAmount.ToString();
+            var completion = value.StatusAmount > 0  && value.BudgetAmount > 0 ? (value.StatusAmount * 100 / value.BudgetAmount) : 0 ;
+            lblCategoryName.Text = $"{value.CategoryName} ({completion}%)";
+            lblStatusAmount.Text = $"{ value.StatusAmount}";;
+
+            if (value.StatusAmount >= value.BudgetAmount)
+            {
+                lblStatusAmount.ForeColor = Color.DarkRed;
+            }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
