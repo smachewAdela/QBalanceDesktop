@@ -59,5 +59,23 @@ namespace QBalanceDesktop.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string btnNextMonth_Image {
+            get {
+                return ResourceManager.GetString("btnNextMonth.Image", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string btnPrevMonth_Image {
+            get {
+                return ResourceManager.GetString("btnPrevMonth.Image", resourceCulture);
+            }
+        }
     }
 }
