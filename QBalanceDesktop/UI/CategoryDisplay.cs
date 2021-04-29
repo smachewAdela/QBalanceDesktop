@@ -13,9 +13,23 @@ namespace QBalanceDesktop.UI
         public CategoryDisplay()
         {
             InitializeComponent();
+            btnAdd.MouseHover += BtnAdd_MouseHover;
+            btnAdd.MouseLeave += BtnAdd_MouseLeave;
+        }
+
+        private void BtnAdd_MouseLeave(object sender, EventArgs e)
+        {
+            btnAdd.BackColor = this.BackColor;
+        }
+
+        private void BtnAdd_MouseHover(object sender, EventArgs e)
+        {
+            btnAdd.BackColor = IColor;
         }
 
         private BudgetItem _bi;
+        private Color _icolor;
+
         public BudgetItem BudgetItem
         {
             get
@@ -45,12 +59,31 @@ namespace QBalanceDesktop.UI
         {
             get
             {
-                return lblIndex.ForeColor;
+                return _icolor;
             }
             set
             {
-               lblIndex.ForeColor = 
-                pnlDelemeter.BackColor = value;
+                _icolor = value;
+               lblIndex.ForeColor = value;
+                //pnlDelemeter.BackColor = value;
+            }
+        }
+
+        public bool DistinctiveItem
+        {
+            get
+            {
+                return false;
+            }
+            set
+            {
+                if (value)
+                {
+                    this.BackColor = SystemColors.ControlDark;
+                    //pnlDelemeter.BackColor = SystemColors.ControlDarkDark;
+                };
+                txAmount.BackColor = this.BackColor;
+                pnlDelemeter.BackColor = this.BackColor;
             }
         }
 

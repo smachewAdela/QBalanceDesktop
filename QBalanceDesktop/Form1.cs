@@ -89,9 +89,10 @@ namespace QBalanceDesktop
             flowLayoutPanel1.Controls.Clear();
             lblMonthTitle.Text = currentBudget.Title;
             var idx = 1;
+        
             foreach (var item in currentBudget.Items.OrderBy(x => x.GroupId).ToList())
             {
-                var cd = new CategoryDisplay { BudgetItem = item, Index = idx++, IColor = GroupColors[item.GroupId] };
+                var cd = new CategoryDisplay { BudgetItem = item, Index = idx++, IColor = GroupColors[item.GroupId], DistinctiveItem = GroupColors.Keys.ToList().IndexOf(item.GroupId) % 2 == 0 };
                 flowLayoutPanel1.Controls.Add(cd);
             }
         }

@@ -78,7 +78,7 @@
             this.lblCategoryName.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lblCategoryName.Location = new System.Drawing.Point(40, 0);
             this.lblCategoryName.Name = "lblCategoryName";
-            this.lblCategoryName.Size = new System.Drawing.Size(258, 47);
+            this.lblCategoryName.Size = new System.Drawing.Size(318, 47);
             this.lblCategoryName.TabIndex = 1;
             this.lblCategoryName.Text = "label1";
             this.lblCategoryName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -88,7 +88,7 @@
             this.lblStatusAmount.Dock = System.Windows.Forms.DockStyle.Left;
             this.lblStatusAmount.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblStatusAmount.ForeColor = System.Drawing.Color.AliceBlue;
-            this.lblStatusAmount.Location = new System.Drawing.Point(298, 0);
+            this.lblStatusAmount.Location = new System.Drawing.Point(358, 0);
             this.lblStatusAmount.Name = "lblStatusAmount";
             this.lblStatusAmount.Size = new System.Drawing.Size(117, 47);
             this.lblStatusAmount.TabIndex = 1;
@@ -102,12 +102,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txAmount.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.txAmount.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txAmount.Location = new System.Drawing.Point(421, 10);
+            this.txAmount.Location = new System.Drawing.Point(465, 10);
             this.txAmount.Name = "txAmount";
-            this.txAmount.Size = new System.Drawing.Size(200, 27);
+            this.txAmount.Size = new System.Drawing.Size(156, 27);
             this.txAmount.TabIndex = 2;
             this.txAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-
             // 
             // btnAdd
             // 
