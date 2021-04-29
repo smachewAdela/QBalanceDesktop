@@ -41,7 +41,7 @@ namespace QBalanceDesktop
             ArrangeLocations();
            
             currentBudget = GlobalsProviderBL.CurrentBudget;
-            dataMode = DataModeEnum.Transactions;
+            dataMode = DataModeEnum.Status;
             RefreshView();
         }
 
@@ -87,14 +87,13 @@ namespace QBalanceDesktop
         private void RefreshView()
         {
             flowLayoutPanel1.Controls.Clear();
+            lblMonthTitle.Text = currentBudget.Title;
+            var idx = 1;
 
             if (dataMode == DataModeEnum.Transactions)
             {
                 if (GroupColors == null)
                     LoadGroupColors();
-          
-                lblMonthTitle.Text = currentBudget.Title;
-                var idx = 1;
 
                 foreach (var item in currentBudget.Items.OrderBy(x => x.GroupId).ToList())
                 {
@@ -105,17 +104,23 @@ namespace QBalanceDesktop
 
             if (dataMode == DataModeEnum.Budget)
             {
-                if (GroupColors == null)
-                    LoadGroupColors();
-
-                lblMonthTitle.Text = currentBudget.Title;
-                var idx = 1;
-
                 foreach (var item in currentBudget.Items.OrderBy(x => x.GroupId).ToList())
                 {
                     var cd = new CategoryBudgetDisplay { BudgetItem = item, Index = idx++, DistinctiveItem = GroupColors.Keys.ToList().IndexOf(item.GroupId) % 2 == 0 };
                     flowLayoutPanel1.Controls.Add(cd);
                 }
+            }
+            if (dataMode == DataModeEnum.Status)
+            {
+                var groups = Db.GetData<BudgetGroup>(new SearchParameters());
+                foreach (var item in groups)
+                {
+                    var gs = new BudgetGroupStatus { Group = item.Name, Data = currentBudget.Items.Where(x => x.GroupId == item.Id).ToList() };
+                    flowLayoutPanel1.Controls.Add(gs);
+                }
+
+                var totalItems = new BudgetGroupStatus { Group = "סה\"כ", Data = currentBudget.Items , IsTotal = true};
+                flowLayoutPanel1.Controls.Add(totalItems);
             }
         }
 

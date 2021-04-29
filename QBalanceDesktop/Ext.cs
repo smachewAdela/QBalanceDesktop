@@ -6,10 +6,10 @@ namespace QBalanceDesktop
 {
     public static class Ext
     {
-        //public static void Upsert(BaseDbItem dbItem)
-        //{
-
-        //}
+        public static string ToNumberFormat(this int num)
+        {
+            return String.Format("{0:n0}", num); 
+        }
 
         public static string ToFormatedDate(this DateTime d)
         {
