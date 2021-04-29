@@ -60,16 +60,16 @@
   <assembly alias="System.Drawing.Common" name="System.Drawing.Common, Version=4.0.2.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51" />
   <data name="btnPrevMonth.Image" type="System.Drawing.Bitmap, System.Drawing.Common" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAACxIAAAsSAdLdfvwAAACESURBVEhLYxgFFIOgoKDwwMDAZ0B8Mjg4WAkqTB0ANNwU
-        aPAfIP4PwgEBAQ+pagnQwEyY4TSxJDQ0VAho6F1aWyI3agnRAJ8l/v7+slBllAFclgCT9ByoEsoATS2g
-        aRDRNJKHtOG0LSqABtG2sKN5cQ0CsAoHSJ/w9fVVhAqPAmoBBgYAdb/Ydq25ivQAAAAASUVORK5CYII=
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DwAACw8BkvkDpQAAAIRJREFUSEtjGAUUg6CgoPDAwMBnQHwyODhYCSpMHQA03BRo8B8g/g/CAQEBD6lq
+        CdDATJjhNLEkNDRUCGjoXVpbIjdqCdEAnyX+/v6yUGWUAVyWAJP0HKgSygBNLaBpENE0koe04bQtKoAG
+        0bawo3lxDQKwCgdIn/D19VWECo8CagEGBgB1v9h2rbmK9AAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="btnNextMonth.Image" type="System.Drawing.Bitmap, System.Drawing.Common" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EgAACxIB0t1+/AAAAJZJREFUSEtjGAVUB76+vopBQUEnAgMDnwHpcKgwdUBwcLBSQEDAQ6Dh/6H4D9AS
+        DwAACw8BkvkDpQAAAJZJREFUSEtjGAVUB76+vopBQUEnAgMDnwHpcKgwdUBwcLBSQEDAQ6Dh/6H4D9AS
         U6g0ZQCL4WAMFMuEKiEf4DIciO+GhoYKQZWRBwgYLgdVRh4Yuob7+/vL0sxwEAAmvTk0MxwEaG4BzYMI
         BGgayTAwYiyhrKiAAVyWAMUoL+xgAIsl1CuuYQBkCdDgk0BM/QpnJAIGBgDW99h2wciN/wAAAABJRU5E
         rkJggg==

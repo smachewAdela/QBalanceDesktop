@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CategoryBudgetDisplay));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -37,6 +38,10 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.lblName = new System.Windows.Forms.Label();
+            this.txAmount = new System.Windows.Forms.TextBox();
+            this.lblIndex = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -153,14 +158,68 @@
             this.label9.Text = "1";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnUpdate.FlatAppearance.BorderSize = 0;
+            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdate.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdate.Image")));
+            this.btnUpdate.Location = new System.Drawing.Point(620, 0);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(117, 49);
+            this.btnUpdate.TabIndex = 0;
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
+            // lblName
+            // 
+            this.lblName.Font = new System.Drawing.Font("Segoe WP", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblName.Location = new System.Drawing.Point(45, 0);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(241, 49);
+            this.lblName.TabIndex = 1;
+            this.lblName.Text = "label10";
+            this.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txAmount
+            // 
+            this.txAmount.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txAmount.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.txAmount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txAmount.Location = new System.Drawing.Point(312, 14);
+            this.txAmount.Name = "txAmount";
+            this.txAmount.Size = new System.Drawing.Size(267, 29);
+            this.txAmount.TabIndex = 2;
+            this.txAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lblIndex
+            // 
+            this.lblIndex.BackColor = System.Drawing.SystemColors.Desktop;
+            this.lblIndex.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblIndex.Font = new System.Drawing.Font("Segoe WP", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblIndex.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.lblIndex.Location = new System.Drawing.Point(0, 0);
+            this.lblIndex.Name = "lblIndex";
+            this.lblIndex.Size = new System.Drawing.Size(39, 49);
+            this.lblIndex.TabIndex = 1;
+            this.lblIndex.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // CategoryBudgetDisplay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.Controls.Add(this.lblIndex);
+            this.Controls.Add(this.txAmount);
+            this.Controls.Add(this.lblName);
+            this.Controls.Add(this.btnUpdate);
             this.Name = "CategoryBudgetDisplay";
             this.Size = new System.Drawing.Size(737, 49);
             this.Load += new System.EventHandler(this.CategoryBudgetDisplay_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -175,5 +234,9 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.TextBox txAmount;
+        private System.Windows.Forms.Label lblIndex;
     }
 }

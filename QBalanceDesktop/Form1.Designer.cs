@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BaseForm));
             this.btnExit = new System.Windows.Forms.Button();
             this.gbMain = new System.Windows.Forms.GroupBox();
+            this.btnStatus = new System.Windows.Forms.Button();
+            this.btnTrans = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -67,6 +69,8 @@
             // gbMain
             // 
             this.gbMain.BackColor = System.Drawing.SystemColors.WindowText;
+            this.gbMain.Controls.Add(this.btnStatus);
+            this.gbMain.Controls.Add(this.btnTrans);
             this.gbMain.Controls.Add(this.button4);
             this.gbMain.Controls.Add(this.button3);
             this.gbMain.Controls.Add(this.button2);
@@ -82,6 +86,34 @@
             this.gbMain.TabIndex = 1;
             this.gbMain.TabStop = false;
             // 
+            // btnStatus
+            // 
+            this.btnStatus.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnStatus.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnStatus.Location = new System.Drawing.Point(4, 241);
+            this.btnStatus.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnStatus.Name = "btnStatus";
+            this.btnStatus.Size = new System.Drawing.Size(117, 37);
+            this.btnStatus.TabIndex = 2;
+            this.btnStatus.Text = "סטטוס";
+            this.btnStatus.UseVisualStyleBackColor = true;
+            this.btnStatus.Click += new System.EventHandler(this.btnStatus_Click);
+            // 
+            // btnTrans
+            // 
+            this.btnTrans.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnTrans.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTrans.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnTrans.Location = new System.Drawing.Point(4, 204);
+            this.btnTrans.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnTrans.Name = "btnTrans";
+            this.btnTrans.Size = new System.Drawing.Size(117, 37);
+            this.btnTrans.TabIndex = 2;
+            this.btnTrans.Text = "תנועות";
+            this.btnTrans.UseVisualStyleBackColor = true;
+            this.btnTrans.Click += new System.EventHandler(this.btnTrans_Click);
+            // 
             // button4
             // 
             this.button4.Dock = System.Windows.Forms.DockStyle.Top;
@@ -94,6 +126,7 @@
             this.button4.TabIndex = 2;
             this.button4.Text = "הגדרות";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
@@ -107,6 +140,7 @@
             this.button3.TabIndex = 2;
             this.button3.Text = "דוחות";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -120,6 +154,7 @@
             this.button2.TabIndex = 2;
             this.button2.Text = "הכנסות";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -133,6 +168,7 @@
             this.button1.TabIndex = 2;
             this.button1.Text = "קטגוריות";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // btnNavBudget
             // 
@@ -146,6 +182,7 @@
             this.btnNavBudget.TabIndex = 2;
             this.btnNavBudget.Text = "תקציב";
             this.btnNavBudget.UseVisualStyleBackColor = true;
+            this.btnNavBudget.Click += new System.EventHandler(this.btnNavBudget_Click);
             // 
             // panel1
             // 
@@ -332,6 +369,8 @@
         private System.Windows.Forms.Button btnMigrate;
         private System.Windows.Forms.Button btnIncrementMonth;
         private System.Windows.Forms.GroupBox gbActions;
+        private System.Windows.Forms.Button btnStatus;
+        private System.Windows.Forms.Button btnTrans;
     }
 }
 

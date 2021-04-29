@@ -19,7 +19,8 @@ namespace QBalanceDesktop
         Transactions,
         Settings,
         Categories,
-        Reports
+        Reports,
+        Status
     }
     public partial class BaseForm : Form
     {
@@ -33,13 +34,14 @@ namespace QBalanceDesktop
             }
         }
         private Random rnd = new Random();
-
+        private DataModeEnum dataMode;
         public BaseForm()
         {
             InitializeComponent();
             ArrangeLocations();
            
             currentBudget = GlobalsProviderBL.CurrentBudget;
+            dataMode = DataModeEnum.Transactions;
             RefreshView();
         }
 
@@ -84,16 +86,36 @@ namespace QBalanceDesktop
 
         private void RefreshView()
         {
-            if(GroupColors == null)
-                LoadGroupColors();
             flowLayoutPanel1.Controls.Clear();
-            lblMonthTitle.Text = currentBudget.Title;
-            var idx = 1;
-        
-            foreach (var item in currentBudget.Items.OrderBy(x => x.GroupId).ToList())
+
+            if (dataMode == DataModeEnum.Transactions)
             {
-                var cd = new CategoryDisplay { BudgetItem = item, Index = idx++, IColor = GroupColors[item.GroupId], DistinctiveItem = GroupColors.Keys.ToList().IndexOf(item.GroupId) % 2 == 0 };
-                flowLayoutPanel1.Controls.Add(cd);
+                if (GroupColors == null)
+                    LoadGroupColors();
+          
+                lblMonthTitle.Text = currentBudget.Title;
+                var idx = 1;
+
+                foreach (var item in currentBudget.Items.OrderBy(x => x.GroupId).ToList())
+                {
+                    var cd = new CategoryDisplay { BudgetItem = item, Index = idx++, IColor = GroupColors[item.GroupId], DistinctiveItem = GroupColors.Keys.ToList().IndexOf(item.GroupId) % 2 == 0 };
+                    flowLayoutPanel1.Controls.Add(cd);
+                }
+            }
+
+            if (dataMode == DataModeEnum.Budget)
+            {
+                if (GroupColors == null)
+                    LoadGroupColors();
+
+                lblMonthTitle.Text = currentBudget.Title;
+                var idx = 1;
+
+                foreach (var item in currentBudget.Items.OrderBy(x => x.GroupId).ToList())
+                {
+                    var cd = new CategoryBudgetDisplay { BudgetItem = item, Index = idx++, DistinctiveItem = GroupColors.Keys.ToList().IndexOf(item.GroupId) % 2 == 0 };
+                    flowLayoutPanel1.Controls.Add(cd);
+                }
             }
         }
 
@@ -130,6 +152,48 @@ namespace QBalanceDesktop
         private void btnIncrementMonth_Click(object sender, EventArgs e)
         {
             GlobalsProviderBL.IncrementMonth();
+        }
+
+        private void btnNavBudget_Click(object sender, EventArgs e)
+        {
+            dataMode = DataModeEnum.Budget;
+            RefreshView();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            dataMode = DataModeEnum.Categories;
+            RefreshView();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            dataMode = DataModeEnum.Incomes;
+            RefreshView();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            dataMode = DataModeEnum.Reports;
+            RefreshView();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            dataMode = DataModeEnum.Settings;
+            RefreshView();
+        }
+
+        private void btnTrans_Click(object sender, EventArgs e)
+        {
+            dataMode = DataModeEnum.Transactions;
+            RefreshView();
+        }
+
+        private void btnStatus_Click(object sender, EventArgs e)
+        {
+            dataMode = DataModeEnum.Status;
+            RefreshView();
         }
     }
 }
