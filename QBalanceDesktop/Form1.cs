@@ -111,8 +111,12 @@ namespace QBalanceDesktop
                 if (GroupColors == null)
                     LoadGroupColors();
 
+                var hideUnbudgeted = !GlobalsProviderBL.Settings.ShowUnbudgetedCategories;
+
                 foreach (var item in currentBudget.Items.OrderBy(x => x.GroupId).ToList())
                 {
+                    if (hideUnbudgeted && item.BudgetAmount == 0)
+                        continue;
                     var cd = new CategoryDisplay { BudgetItem = item, Index = idx++, IColor = GroupColors[item.GroupId], DistinctiveItem = GroupColors.Keys.ToList().IndexOf(item.GroupId) % 2 == 0 };
                     flowLayoutPanel1.Controls.Add(cd);
                 }
@@ -148,6 +152,10 @@ namespace QBalanceDesktop
                     var gs = new CategoryEdit { BudgetItem = item, Data = groups };
                     flowLayoutPanel1.Controls.Add(gs);
                 }
+            }
+            if (dataMode == DataModeEnum.Settings)
+            {
+                flowLayoutPanel1.Controls.Add(new SettingsUC {  });
             }
         }
 

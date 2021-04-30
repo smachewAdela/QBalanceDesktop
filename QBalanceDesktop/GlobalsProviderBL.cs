@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Linq;
 using System.Text;
 
 namespace QBalanceDesktop
@@ -18,6 +19,14 @@ namespace QBalanceDesktop
                     budgetDb = new DbAccess(connStr);
                 }
                 return budgetDb;
+            }
+        }
+
+        public static ISettings Settings
+        {
+            get
+            {
+                return Db.GetData<ISettings>().FirstOrDefault();
             }
         }
 

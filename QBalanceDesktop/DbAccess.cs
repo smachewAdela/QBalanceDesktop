@@ -26,8 +26,10 @@ namespace QBalanceDesktop
             return GetData<T>(parameters).FirstOrDefault();
         }
 
-        public List<T> GetData<T>(SearchParameters parameters) where T : BaseDbItem
+        public List<T> GetData<T>(SearchParameters parameters = null) where T : BaseDbItem
         {
+            if (parameters == null)
+                parameters = new SearchParameters();
             List<DbParam> innerParams = new List<DbParam>();
             var i = (T)Activator.CreateInstance(typeof(T));
             var query = $"select * from {i.GetTableName()}";
