@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BaseForm));
             this.btnExit = new System.Windows.Forms.Button();
             this.gbMain = new System.Windows.Forms.GroupBox();
+            this.btnScanFinanda = new System.Windows.Forms.Button();
             this.btnStatus = new System.Windows.Forms.Button();
             this.btnTrans = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -44,32 +45,29 @@
             this.lblMonthTitle = new System.Windows.Forms.Label();
             this.btnPrevMonth = new System.Windows.Forms.Button();
             this.btnNextMonth = new System.Windows.Forms.Button();
-            this.btnSync = new System.Windows.Forms.Button();
-            this.btnScan = new System.Windows.Forms.Button();
-            this.btnMigrate = new System.Windows.Forms.Button();
-            this.btnIncrementMonth = new System.Windows.Forms.Button();
-            this.gbActions = new System.Windows.Forms.GroupBox();
             this.lblTitle = new System.Windows.Forms.Label();
             this.gbMain.SuspendLayout();
             this.panel1.SuspendLayout();
             this.pnlMonth.SuspendLayout();
-            this.gbActions.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnExit
             // 
+            this.btnExit.FlatAppearance.BorderSize = 0;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
             this.btnExit.Location = new System.Drawing.Point(1013, 432);
             this.btnExit.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(172, 32);
             this.btnExit.TabIndex = 0;
-            this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.button1_Click);
             // 
             // gbMain
             // 
             this.gbMain.BackColor = System.Drawing.SystemColors.WindowText;
+            this.gbMain.Controls.Add(this.btnScanFinanda);
             this.gbMain.Controls.Add(this.btnStatus);
             this.gbMain.Controls.Add(this.btnTrans);
             this.gbMain.Controls.Add(this.button4);
@@ -79,23 +77,41 @@
             this.gbMain.Controls.Add(this.btnNavBudget);
             this.gbMain.Controls.Add(this.panel1);
             this.gbMain.ForeColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.gbMain.Location = new System.Drawing.Point(181, 92);
+            this.gbMain.Location = new System.Drawing.Point(13, 92);
             this.gbMain.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.gbMain.Name = "gbMain";
             this.gbMain.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.gbMain.Size = new System.Drawing.Size(1003, 333);
+            this.gbMain.Size = new System.Drawing.Size(1171, 333);
             this.gbMain.TabIndex = 1;
             this.gbMain.TabStop = false;
+            // 
+            // btnScanFinanda
+            // 
+            this.btnScanFinanda.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnScanFinanda.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnScanFinanda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnScanFinanda.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnScanFinanda.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnScanFinanda.Image = ((System.Drawing.Image)(resources.GetObject("btnScanFinanda.Image")));
+            this.btnScanFinanda.Location = new System.Drawing.Point(4, 293);
+            this.btnScanFinanda.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnScanFinanda.Name = "btnScanFinanda";
+            this.btnScanFinanda.Size = new System.Drawing.Size(68, 37);
+            this.btnScanFinanda.TabIndex = 2;
+            this.btnScanFinanda.UseVisualStyleBackColor = true;
+            this.btnScanFinanda.Click += new System.EventHandler(this.btnStatus_Click);
             // 
             // btnStatus
             // 
             this.btnStatus.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnStatus.FlatAppearance.BorderSize = 0;
+            this.btnStatus.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStatus.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnStatus.Location = new System.Drawing.Point(4, 241);
             this.btnStatus.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnStatus.Name = "btnStatus";
-            this.btnStatus.Size = new System.Drawing.Size(117, 37);
+            this.btnStatus.Size = new System.Drawing.Size(68, 37);
             this.btnStatus.TabIndex = 2;
             this.btnStatus.Text = "סטטוס";
             this.btnStatus.UseVisualStyleBackColor = true;
@@ -104,12 +120,14 @@
             // btnTrans
             // 
             this.btnTrans.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnTrans.FlatAppearance.BorderSize = 0;
+            this.btnTrans.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnTrans.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTrans.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnTrans.Location = new System.Drawing.Point(4, 204);
             this.btnTrans.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnTrans.Name = "btnTrans";
-            this.btnTrans.Size = new System.Drawing.Size(117, 37);
+            this.btnTrans.Size = new System.Drawing.Size(68, 37);
             this.btnTrans.TabIndex = 2;
             this.btnTrans.Text = "תנועות";
             this.btnTrans.UseVisualStyleBackColor = true;
@@ -118,12 +136,14 @@
             // button4
             // 
             this.button4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button4.Location = new System.Drawing.Point(4, 167);
             this.button4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(117, 37);
+            this.button4.Size = new System.Drawing.Size(68, 37);
             this.button4.TabIndex = 2;
             this.button4.Text = "הגדרות";
             this.button4.UseVisualStyleBackColor = true;
@@ -132,12 +152,14 @@
             // button3
             // 
             this.button3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button3.Location = new System.Drawing.Point(4, 130);
             this.button3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(117, 37);
+            this.button3.Size = new System.Drawing.Size(68, 37);
             this.button3.TabIndex = 2;
             this.button3.Text = "דוחות";
             this.button3.UseVisualStyleBackColor = true;
@@ -146,12 +168,14 @@
             // button2
             // 
             this.button2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button2.Location = new System.Drawing.Point(4, 93);
             this.button2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(117, 37);
+            this.button2.Size = new System.Drawing.Size(68, 37);
             this.button2.TabIndex = 2;
             this.button2.Text = "הכנסות";
             this.button2.UseVisualStyleBackColor = true;
@@ -160,12 +184,14 @@
             // button1
             // 
             this.button1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button1.Location = new System.Drawing.Point(4, 56);
             this.button1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(117, 37);
+            this.button1.Size = new System.Drawing.Size(68, 37);
             this.button1.TabIndex = 2;
             this.button1.Text = "קטגוריות";
             this.button1.UseVisualStyleBackColor = true;
@@ -174,12 +200,14 @@
             // btnNavBudget
             // 
             this.btnNavBudget.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnNavBudget.FlatAppearance.BorderSize = 0;
+            this.btnNavBudget.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnNavBudget.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNavBudget.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnNavBudget.Location = new System.Drawing.Point(4, 19);
             this.btnNavBudget.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnNavBudget.Name = "btnNavBudget";
-            this.btnNavBudget.Size = new System.Drawing.Size(117, 37);
+            this.btnNavBudget.Size = new System.Drawing.Size(68, 37);
             this.btnNavBudget.TabIndex = 2;
             this.btnNavBudget.Text = "תקציב";
             this.btnNavBudget.UseVisualStyleBackColor = true;
@@ -189,21 +217,21 @@
             // 
             this.panel1.Controls.Add(this.flowLayoutPanel1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(121, 19);
+            this.panel1.Location = new System.Drawing.Point(72, 19);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(878, 311);
+            this.panel1.Size = new System.Drawing.Size(1095, 311);
             this.panel1.TabIndex = 1;
             // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel1.BackColor = System.Drawing.SystemColors.Desktop;
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(355, 0);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(878, 311);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(740, 311);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // pnlMonth
@@ -215,7 +243,7 @@
             this.pnlMonth.Location = new System.Drawing.Point(410, 39);
             this.pnlMonth.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.pnlMonth.Name = "pnlMonth";
-            this.pnlMonth.Size = new System.Drawing.Size(367, 37);
+            this.pnlMonth.Size = new System.Drawing.Size(272, 37);
             this.pnlMonth.TabIndex = 2;
             // 
             // lblMonthTitle
@@ -226,7 +254,7 @@
             this.lblMonthTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMonthTitle.Name = "lblMonthTitle";
             this.lblMonthTitle.Padding = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblMonthTitle.Size = new System.Drawing.Size(217, 37);
+            this.lblMonthTitle.Size = new System.Drawing.Size(122, 37);
             this.lblMonthTitle.TabIndex = 1;
             this.lblMonthTitle.Text = "label1";
             this.lblMonthTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -235,10 +263,11 @@
             // 
             this.btnPrevMonth.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnPrevMonth.FlatAppearance.BorderSize = 0;
+            this.btnPrevMonth.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnPrevMonth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPrevMonth.ForeColor = System.Drawing.Color.Crimson;
             this.btnPrevMonth.Image = ((System.Drawing.Image)(resources.GetObject("btnPrevMonth.Image")));
-            this.btnPrevMonth.Location = new System.Drawing.Point(292, 0);
+            this.btnPrevMonth.Location = new System.Drawing.Point(197, 0);
             this.btnPrevMonth.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnPrevMonth.Name = "btnPrevMonth";
             this.btnPrevMonth.Size = new System.Drawing.Size(75, 37);
@@ -250,6 +279,7 @@
             // 
             this.btnNextMonth.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnNextMonth.FlatAppearance.BorderSize = 0;
+            this.btnNextMonth.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnNextMonth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNextMonth.ForeColor = System.Drawing.Color.Crimson;
             this.btnNextMonth.Image = ((System.Drawing.Image)(resources.GetObject("btnNextMonth.Image")));
@@ -261,77 +291,11 @@
             this.btnNextMonth.UseVisualStyleBackColor = true;
             this.btnNextMonth.Click += new System.EventHandler(this.btnNextMonth_Click);
             // 
-            // btnSync
-            // 
-            this.btnSync.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnSync.Enabled = false;
-            this.btnSync.Location = new System.Drawing.Point(4, 388);
-            this.btnSync.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnSync.Name = "btnSync";
-            this.btnSync.Size = new System.Drawing.Size(145, 23);
-            this.btnSync.TabIndex = 0;
-            this.btnSync.Text = "Sync";
-            this.btnSync.UseVisualStyleBackColor = true;
-            // 
-            // btnScan
-            // 
-            this.btnScan.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnScan.Enabled = false;
-            this.btnScan.Location = new System.Drawing.Point(4, 365);
-            this.btnScan.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnScan.Name = "btnScan";
-            this.btnScan.Size = new System.Drawing.Size(145, 23);
-            this.btnScan.TabIndex = 0;
-            this.btnScan.Text = "Scan";
-            this.btnScan.UseVisualStyleBackColor = true;
-            // 
-            // btnMigrate
-            // 
-            this.btnMigrate.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnMigrate.Enabled = false;
-            this.btnMigrate.Location = new System.Drawing.Point(4, 342);
-            this.btnMigrate.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnMigrate.Name = "btnMigrate";
-            this.btnMigrate.Size = new System.Drawing.Size(145, 23);
-            this.btnMigrate.TabIndex = 0;
-            this.btnMigrate.Text = "Migrate";
-            this.btnMigrate.UseVisualStyleBackColor = true;
-            // 
-            // btnIncrementMonth
-            // 
-            this.btnIncrementMonth.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnIncrementMonth.FlatAppearance.BorderSize = 0;
-            this.btnIncrementMonth.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnIncrementMonth.Location = new System.Drawing.Point(4, 19);
-            this.btnIncrementMonth.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnIncrementMonth.Name = "btnIncrementMonth";
-            this.btnIncrementMonth.Size = new System.Drawing.Size(145, 23);
-            this.btnIncrementMonth.TabIndex = 0;
-            this.btnIncrementMonth.Text = "Increment";
-            this.btnIncrementMonth.UseVisualStyleBackColor = true;
-            this.btnIncrementMonth.Click += new System.EventHandler(this.btnIncrementMonth_Click);
-            // 
-            // gbActions
-            // 
-            this.gbActions.BackColor = System.Drawing.Color.Goldenrod;
-            this.gbActions.Controls.Add(this.btnIncrementMonth);
-            this.gbActions.Controls.Add(this.btnMigrate);
-            this.gbActions.Controls.Add(this.btnScan);
-            this.gbActions.Controls.Add(this.btnSync);
-            this.gbActions.Location = new System.Drawing.Point(12, 12);
-            this.gbActions.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.gbActions.Name = "gbActions";
-            this.gbActions.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.gbActions.Size = new System.Drawing.Size(153, 414);
-            this.gbActions.TabIndex = 1;
-            this.gbActions.TabStop = false;
-            this.gbActions.Text = "Actions";
-            // 
             // lblTitle
             // 
             this.lblTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 13F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
-            this.lblTitle.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.lblTitle.Font = new System.Drawing.Font("Verdana", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.lblTitle.Location = new System.Drawing.Point(916, 39);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(166, 37);
@@ -347,7 +311,6 @@
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.pnlMonth);
             this.Controls.Add(this.gbMain);
-            this.Controls.Add(this.gbActions);
             this.Controls.Add(this.btnExit);
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "BaseForm";
@@ -358,7 +321,6 @@
             this.gbMain.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.pnlMonth.ResumeLayout(false);
-            this.gbActions.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -378,14 +340,10 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button btnSync;
-        private System.Windows.Forms.Button btnScan;
-        private System.Windows.Forms.Button btnMigrate;
-        private System.Windows.Forms.Button btnIncrementMonth;
-        private System.Windows.Forms.GroupBox gbActions;
         private System.Windows.Forms.Button btnStatus;
         private System.Windows.Forms.Button btnTrans;
         private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.Button btnScanFinanda;
     }
 }
 

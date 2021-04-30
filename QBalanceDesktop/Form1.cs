@@ -37,6 +37,8 @@ namespace QBalanceDesktop
         private Random rnd = new Random();
 
         DataModeEnum dm;
+        private int delemeter;
+
         private DataModeEnum dataMode
         {
             get
@@ -68,18 +70,17 @@ namespace QBalanceDesktop
         private void ArrangeLocations()
         {
             CenterToScreen();
-            var delemeter = 45;
+            delemeter = 45;
             var formWidth = this.Width;
             var formHeight = this.Height;
 
 
-            gbActions.Location = new Point(delemeter, delemeter);
-            pnlMonth.Location = new Point(gbActions.Location.X + gbActions.Width + delemeter, 5);
-            lblTitle.Location = new Point(pnlMonth.Location.X + pnlMonth.Width + delemeter, pnlMonth.Location.Y);
+            pnlMonth.Location = new Point( delemeter, 5);
+            lblTitle.Location = new Point(this.Width /2, pnlMonth.Location.Y);
             btnExit.Location = new Point(formWidth - btnExit.Width - delemeter, formHeight - btnExit.Height - delemeter);
 
-            gbMain.Location = new Point(gbActions.Location.X + gbActions.Width + delemeter, delemeter);
-            gbMain.Width = formWidth - delemeter * 3 - gbActions.Width;
+            gbMain.Location = new Point( delemeter, delemeter);
+            gbMain.Width = formWidth - delemeter * 2;
             gbMain.Height = formHeight - delemeter * 3 - btnExit.Height;
         }
         private void button1_Click(object sender, EventArgs e)
@@ -106,6 +107,7 @@ namespace QBalanceDesktop
             {
                 RefreshMonth();
             }
+            var flowWidth = delemeter;
             flowLayoutPanel1.Controls.Clear();
             lblMonthTitle.Text = currentBudget.Title;
             var idx = 1;
@@ -121,57 +123,66 @@ namespace QBalanceDesktop
                 {
                     if (hideUnbudgeted && item.BudgetAmount == 0)
                         continue;
+
                     var cd = new CategoryDisplay { BudgetItem = item, Index = idx++, IColor = GroupColors[item.GroupId], DistinctiveItem = GroupColors.Keys.ToList().IndexOf(item.GroupId) % 2 == 0 };
+                    flowWidth = cd.Width;
                     flowLayoutPanel1.Controls.Add(cd);
                 }
             }
 
-            if (dataMode == DataModeEnum.Budget)
+            else if (dataMode == DataModeEnum.Budget)
             {
                 if (GroupColors == null)
                     LoadGroupColors();
                 foreach (var item in currentBudget.Items.OrderBy(x => x.GroupId).ToList())
                 {
                     var cd = new CategoryBudgetDisplay { BudgetItem = item, Index = idx++, DistinctiveItem = GroupColors.Keys.ToList().IndexOf(item.GroupId) % 2 == 0 };
+                    flowWidth = cd.Width;
                     flowLayoutPanel1.Controls.Add(cd);
                 }
             }
-            if (dataMode == DataModeEnum.Status)
+            else if (dataMode == DataModeEnum.Status)
             {
                 var groups = Db.GetData<BudgetGroup>(new SearchParameters());
                 foreach (var item in groups)
                 {
                     var gs = new BudgetGroupStatus { Group = item.Name, Data = currentBudget.Items.Where(x => x.GroupId == item.Id).ToList() };
+                    flowWidth = gs.Width;
                     flowLayoutPanel1.Controls.Add(gs);
                 }
 
                 var totalItems = new BudgetGroupStatus { Group = "סה\"כ", Data = currentBudget.Items , IsTotal = true};
                 flowLayoutPanel1.Controls.Add(totalItems);
             }
-            if (dataMode == DataModeEnum.Categories)
+            else if (dataMode == DataModeEnum.Categories)
             {
                 var groups = Db.GetData<BudgetGroup>(new SearchParameters());
                 foreach (var item in currentBudget.Items)
                 {
                     var gs = new CategoryEdit { BudgetItem = item, Data = groups };
+                    flowWidth = gs.Width;
                     flowLayoutPanel1.Controls.Add(gs);
                 }
             }
-            if (dataMode == DataModeEnum.Settings)
+            else if (dataMode == DataModeEnum.Settings)
             {
-                flowLayoutPanel1.Controls.Add(new SettingsUC {  });
+                var gc = new SettingsUC();
+                flowWidth = gc.Width;
+                flowLayoutPanel1.Controls.Add(gc);
             }
-            if (dataMode == DataModeEnum.Incomes)
+            else if (dataMode == DataModeEnum.Incomes)
             {
                 foreach (var item in currentBudget.Incomes)
                 {
                     var gs = new GenericKeyValueUC { Key = item.Name, Value = item.Amount.ToNumberFormat(), Editable = true, IdArgument = item.Id , EditAction = onEditIncome };
+                    flowWidth = gs.Width;
                     flowLayoutPanel1.Controls.Add(gs);
                 }
 
                 var totalItems = new GenericKeyValueUC { Key = "סה\"כ", Value = currentBudget.Incomes.Sum(x => x.Amount).ToNumberFormat(), IsTotal = true };
                 flowLayoutPanel1.Controls.Add(totalItems);
             }
+            flowLayoutPanel1.Width = flowWidth + delemeter;
         }
 
         private void RefreshMonth()

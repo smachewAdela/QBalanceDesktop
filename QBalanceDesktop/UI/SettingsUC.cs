@@ -33,9 +33,9 @@ namespace QBalanceDesktop.UI
         {
             if (Parent != null)
             {
-                var del = 10;
-                this.Height = Parent.Height - del;
-                this.Width = Parent.Width - del;
+                //var del = 10;
+                //this.Height = Parent.Height - del;
+                //this.Width = Parent.Width - del;
             }
         }
 
