@@ -32,5 +32,19 @@ namespace QBalanceDesktop.UI
 
             cmb.Items.AddRange(data.ToArray());
         }
+
+        public static bool HasSelection(this ComboBox cmb)
+        {
+            return cmb.SelectedIndex >= 0;
+        }
+
+        public static int GetSelection(this ComboBox cmb)
+        {
+            if (cmb.SelectedItem is ListItem)
+            {
+                return (cmb.SelectedItem as ListItem).Key;
+            }
+            return cmb.SelectedValue.ChangeType<int>(); 
+        }
     }
 }

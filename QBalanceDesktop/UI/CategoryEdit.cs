@@ -48,7 +48,11 @@ namespace QBalanceDesktop.UI
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-
+            if (cmbGroups.HasSelection())
+            {
+                _bi.GroupId = cmbGroups.GetSelection();
+                GlobalsProviderBL.Db.Update(_bi);
+            }
         }
     }
 }
