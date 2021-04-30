@@ -54,6 +54,7 @@
             // btnExit
             // 
             this.btnExit.FlatAppearance.BorderSize = 0;
+            this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
             this.btnExit.Location = new System.Drawing.Point(1013, 432);
@@ -250,6 +251,7 @@
             // 
             this.lblMonthTitle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblMonthTitle.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblMonthTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.lblMonthTitle.Location = new System.Drawing.Point(75, 0);
             this.lblMonthTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMonthTitle.Name = "lblMonthTitle";
@@ -307,6 +309,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Desktop;
             this.ClientSize = new System.Drawing.Size(1211, 472);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.pnlMonth);

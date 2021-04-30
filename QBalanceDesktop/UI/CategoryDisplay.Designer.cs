@@ -75,7 +75,7 @@
             // 
             this.lblCategoryName.Dock = System.Windows.Forms.DockStyle.Left;
             this.lblCategoryName.Font = new System.Drawing.Font("Segoe UI Emoji", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblCategoryName.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblCategoryName.ForeColor = System.Drawing.Color.LightSteelBlue;
             this.lblCategoryName.Location = new System.Drawing.Point(40, 0);
             this.lblCategoryName.Name = "lblCategoryName";
             this.lblCategoryName.Size = new System.Drawing.Size(318, 47);
@@ -100,8 +100,9 @@
             this.txAmount.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txAmount.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.txAmount.BackColor = System.Drawing.SystemColors.Desktop;
             this.txAmount.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txAmount.ForeColor = System.Drawing.Color.LightSteelBlue;
             this.txAmount.Location = new System.Drawing.Point(465, 10);
             this.txAmount.Name = "txAmount";
             this.txAmount.Size = new System.Drawing.Size(156, 27);
@@ -126,7 +127,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.BackColor = System.Drawing.SystemColors.Desktop;
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.txAmount);
             this.Controls.Add(this.lblStatusAmount);

@@ -38,6 +38,7 @@
             // 
             this.lblName.Dock = System.Windows.Forms.DockStyle.Left;
             this.lblName.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblName.ForeColor = System.Drawing.Color.LightSteelBlue;
             this.lblName.Location = new System.Drawing.Point(0, 0);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(332, 49);
@@ -47,12 +48,13 @@
             // 
             // cmbGroups
             // 
-            this.cmbGroups.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.cmbGroups.BackColor = System.Drawing.SystemColors.Desktop;
             this.cmbGroups.DisplayMember = "Key";
             this.cmbGroups.DropDownHeight = 120;
             this.cmbGroups.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbGroups.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbGroups.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cmbGroups.ForeColor = System.Drawing.Color.LightSteelBlue;
             this.cmbGroups.FormattingEnabled = true;
             this.cmbGroups.IntegralHeight = false;
             this.cmbGroups.Location = new System.Drawing.Point(352, 13);
@@ -80,7 +82,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.BackColor = System.Drawing.SystemColors.Desktop;
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.cmbGroups);
             this.Controls.Add(this.lblName);
