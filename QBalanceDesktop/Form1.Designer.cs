@@ -49,6 +49,7 @@
             this.btnMigrate = new System.Windows.Forms.Button();
             this.btnIncrementMonth = new System.Windows.Forms.Button();
             this.gbActions = new System.Windows.Forms.GroupBox();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.gbMain.SuspendLayout();
             this.panel1.SuspendLayout();
             this.pnlMonth.SuspendLayout();
@@ -214,18 +215,18 @@
             this.pnlMonth.Location = new System.Drawing.Point(410, 39);
             this.pnlMonth.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.pnlMonth.Name = "pnlMonth";
-            this.pnlMonth.Size = new System.Drawing.Size(464, 37);
+            this.pnlMonth.Size = new System.Drawing.Size(367, 37);
             this.pnlMonth.TabIndex = 2;
             // 
             // lblMonthTitle
             // 
             this.lblMonthTitle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblMonthTitle.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblMonthTitle.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblMonthTitle.Location = new System.Drawing.Point(75, 0);
             this.lblMonthTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMonthTitle.Name = "lblMonthTitle";
             this.lblMonthTitle.Padding = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblMonthTitle.Size = new System.Drawing.Size(314, 37);
+            this.lblMonthTitle.Size = new System.Drawing.Size(217, 37);
             this.lblMonthTitle.TabIndex = 1;
             this.lblMonthTitle.Text = "label1";
             this.lblMonthTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -237,7 +238,7 @@
             this.btnPrevMonth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPrevMonth.ForeColor = System.Drawing.Color.Crimson;
             this.btnPrevMonth.Image = ((System.Drawing.Image)(resources.GetObject("btnPrevMonth.Image")));
-            this.btnPrevMonth.Location = new System.Drawing.Point(389, 0);
+            this.btnPrevMonth.Location = new System.Drawing.Point(292, 0);
             this.btnPrevMonth.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnPrevMonth.Name = "btnPrevMonth";
             this.btnPrevMonth.Size = new System.Drawing.Size(75, 37);
@@ -326,11 +327,24 @@
             this.gbActions.TabStop = false;
             this.gbActions.Text = "Actions";
             // 
+            // lblTitle
+            // 
+            this.lblTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 13F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
+            this.lblTitle.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.lblTitle.Location = new System.Drawing.Point(916, 39);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(166, 37);
+            this.lblTitle.TabIndex = 3;
+            this.lblTitle.Text = "label1";
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // BaseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1211, 472);
+            this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.pnlMonth);
             this.Controls.Add(this.gbMain);
             this.Controls.Add(this.gbActions);
@@ -371,6 +385,7 @@
         private System.Windows.Forms.GroupBox gbActions;
         private System.Windows.Forms.Button btnStatus;
         private System.Windows.Forms.Button btnTrans;
+        private System.Windows.Forms.Label lblTitle;
     }
 }
 

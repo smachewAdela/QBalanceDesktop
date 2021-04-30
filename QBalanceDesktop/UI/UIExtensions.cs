@@ -46,5 +46,37 @@ namespace QBalanceDesktop.UI
             }
             return cmb.SelectedValue.ChangeType<int>(); 
         }
+
+        public static string Translate(this DataModeEnum e)
+        {
+            var val = string.Empty;
+            switch (e)
+            {
+                case DataModeEnum.Incomes:
+                    val = "הכנסות";
+                    break;
+                case DataModeEnum.Budget:
+                    val = "תקציב חודשי";
+                    break;
+                case DataModeEnum.Transactions:
+                    val = "תנועות ועדכון";
+                    break;
+                case DataModeEnum.Settings:
+                    val = "הגדרות";
+                    break;
+                case DataModeEnum.Categories:
+                    val = "הגדרת קטגוריות";
+                    break;
+                case DataModeEnum.Reports:
+                    val = "דוחות";
+                    break;
+                case DataModeEnum.Status:
+                    val = "מעקב";
+                    break;
+                default:
+                    break;
+            }
+            return val;
+        }
     }
 }

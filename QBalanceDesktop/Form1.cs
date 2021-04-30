@@ -14,6 +14,7 @@ namespace QBalanceDesktop
 {
     public enum DataModeEnum
     {
+
         Incomes,
         Budget,
         Transactions,
@@ -34,7 +35,21 @@ namespace QBalanceDesktop
             }
         }
         private Random rnd = new Random();
-        private DataModeEnum dataMode;
+
+        DataModeEnum dm;
+        private DataModeEnum dataMode
+        {
+            get
+            {
+                return this.dm;
+            }
+            set
+            {
+                this.dm = value;
+                lblTitle.Text = value.Translate();
+            }
+        }
+
         public BaseForm()
         {
             InitializeComponent();
@@ -60,6 +75,7 @@ namespace QBalanceDesktop
 
             gbActions.Location = new Point(delemeter, delemeter);
             pnlMonth.Location = new Point(gbActions.Location.X + gbActions.Width + delemeter, 5);
+            lblTitle.Location = new Point(pnlMonth.Location.X + pnlMonth.Width + delemeter, pnlMonth.Location.Y);
             btnExit.Location = new Point(formWidth - btnExit.Width - delemeter, formHeight - btnExit.Height - delemeter);
 
             gbMain.Location = new Point(gbActions.Location.X + gbActions.Width + delemeter, delemeter);
