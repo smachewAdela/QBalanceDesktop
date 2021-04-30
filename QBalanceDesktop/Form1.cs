@@ -55,9 +55,9 @@ namespace QBalanceDesktop
             InitializeComponent();
             ArrangeLocations();
            
-            currentBudget = GlobalsProviderBL.CurrentBudget;
+           
             dataMode = DataModeEnum.Status;
-            RefreshView();
+            RefreshView(true);
         }
 
         private void BaseForm_Load(object sender, EventArgs e)
@@ -100,8 +100,12 @@ namespace QBalanceDesktop
             }
         }
 
-        private void RefreshView()
+        private void RefreshView(bool refreshMonth = false)
         {
+            if (refreshMonth)
+            {
+                RefreshMonth();
+            }
             flowLayoutPanel1.Controls.Clear();
             lblMonthTitle.Text = currentBudget.Title;
             var idx = 1;
@@ -157,6 +161,39 @@ namespace QBalanceDesktop
             {
                 flowLayoutPanel1.Controls.Add(new SettingsUC {  });
             }
+            if (dataMode == DataModeEnum.Incomes)
+            {
+                foreach (var item in currentBudget.Incomes)
+                {
+                    var gs = new GenericKeyValueUC { Key = item.Name, Value = item.Amount.ToNumberFormat(), Editable = true, IdArgument = item.Id , EditAction = onEditIncome };
+                    flowLayoutPanel1.Controls.Add(gs);
+                }
+
+                var totalItems = new GenericKeyValueUC { Key = "סה\"כ", Value = currentBudget.Incomes.Sum(x => x.Amount).ToNumberFormat(), IsTotal = true };
+                flowLayoutPanel1.Controls.Add(totalItems);
+            }
+        }
+
+        private void RefreshMonth()
+        {
+            var d = DateTime.Now.Date;
+            Budget b = null;
+            do
+            {
+                b = Db.GetSingle<Budget>(new SearchParameters { BudgetDate = d.FirstDayOfMonth() });
+                d = d.AddMonths(-1);
+            }
+            while (b == null);
+
+            currentBudget = b;
+        }
+
+        public void onEditIncome(int idArg, object newValue)
+        {
+            var inc = Db.GetSingle<BudgetIncomeItem>(new SearchParameters { BudgetIncomeId = idArg });
+            inc.Amount = (int)newValue;
+            Db.Update(inc);
+            RefreshView(true);
         }
 
         private void btnNextMonth_Click(object sender, EventArgs e)
@@ -191,9 +228,24 @@ namespace QBalanceDesktop
 
         private void btnIncrementMonth_Click(object sender, EventArgs e)
         {
-            GlobalsProviderBL.IncrementMonth();
+           IncrementMonth();
         }
+        private void IncrementMonth()
+        {
+            var nextMonth = currentBudget.Month.AddMonths(1);
+            if (nextMonth <= DateTime.Now)
+            {
+                var nextMonthI = new Budget { Month = nextMonth };
+                Db.Insert(nextMonthI);
 
+                foreach (var budgetItem in currentBudget.Items)
+                {
+                    budgetItem.BudgetId = nextMonthI.Id;
+                    budgetItem.StatusAmount = 0;
+                    Db.Insert(budgetItem);
+                }
+            }
+        }
         private void btnNavBudget_Click(object sender, EventArgs e)
         {
             dataMode = DataModeEnum.Budget;

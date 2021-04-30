@@ -13,24 +13,18 @@ namespace QBalanceDesktop
 {
     internal class SyncManager
     {
-        static DbAccess budgetDb;
         private static DbAccess Db
         {
             get
             {
-                if (budgetDb == null)
-                {
-                    var connStr = ConfigurationManager.AppSettings["connectionString"];
-                    budgetDb = new DbAccess(connStr);
-                }
-                return budgetDb;
+                return GlobalsProviderBL.Db;
             }
         }
 
         internal static async void Sync()
         {
             var dSession = Login();
-            SyncData syncData = new SyncData
+            FinandaSyncLog syncData = new FinandaSyncLog
             {
                 SyncStart = DateTime.Now,
                 NewTransactions = 0,
@@ -41,7 +35,6 @@ namespace QBalanceDesktop
 
             var startYear = Convert.ToInt32(ConfigurationManager.AppSettings["startYear"]);
             var from = new DateTime(startYear, 1, 1);
-            var months = GenerateMonths(from).ToDictionary(x => x.StartDate, x => x);
 
             try
             {
@@ -100,7 +93,7 @@ namespace QBalanceDesktop
             return session;
         }
 
-        private static void SyncForAccount(SyncData syncData)
+        private static void SyncForAccount(FinandaSyncLog syncData)
         {
             try
             {
@@ -129,26 +122,7 @@ namespace QBalanceDesktop
             }
         }
 
-        private static List<TrackedMonth> GenerateMonths(DateTime dateTime)
-        {
-            var idate = dateTime.FirstDayOfMonth();
-            var months = new List<TrackedMonth>();
-            while (idate <= DateTime.Now)
-            {
-                var tm = new TrackedMonth { StartDate = idate };
-                Db.Insert(tm);
-                tm.db = Db;
-
-                idate = idate.AddMonths(1);
-              
-
-                months.Add(tm);
-            }
-
-            return months;
-        }
-
-        private static async void GetTrans(DateTime from, DateTime to, SyncData sync)
+        private static async void GetTrans(DateTime from, DateTime to, FinandaSyncLog sync)
         {
             try
             {

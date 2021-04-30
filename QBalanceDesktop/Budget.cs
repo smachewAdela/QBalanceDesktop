@@ -17,9 +17,12 @@ namespace QBalanceDesktop
 
         public List<BudgetItem> Items { get; set; }
 
+        public List<BudgetIncomeItem> Incomes { get; set; }
+
         public override void LoadExtraData()
         {
             Items = GlobalsProviderBL.Db.GetData<BudgetItem>(new SearchParameters { BudgetItemBudgetId = this.Id });
+            Incomes = GlobalsProviderBL.Db.GetData<BudgetIncomeItem>(new SearchParameters { BudgetItemBudgetId = this.Id });
         }
     }
 }

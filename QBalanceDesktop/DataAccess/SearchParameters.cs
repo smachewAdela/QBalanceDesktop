@@ -13,5 +13,6 @@ namespace QBalanceDesktop
         public DateTime? TranToDate { get; internal set; }
         public DateTime? BudgetDate { get; internal set; }
         public int? BudgetItemBudgetId { get; internal set; }
+        public int? BudgetIncomeId { get; internal set; }
     }
 }

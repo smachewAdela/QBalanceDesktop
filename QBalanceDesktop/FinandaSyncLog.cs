@@ -4,7 +4,8 @@ using System.Text;
 
 namespace QBalanceDesktop
 {
-    public class SyncData : BaseDbItem
+    [DbEntity("FinandaSyncLog")]
+    public class FinandaSyncLog : BaseDbItem
     {
         [DbField()]
         public DateTime SyncStart { get; set; }
