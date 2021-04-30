@@ -8,15 +8,15 @@ namespace QBalanceDesktop
     {
     }
 
-    public class LIstItem
-    {
-        public object Value { get; set; }
-        public string Display { get; set; }
-        public object ExtraValue { get; set; }
+    //public class LIstItem
+    //{
+    //    public object Value { get; set; }
+    //    public string Display { get; set; }
+    //    public object ExtraValue { get; set; }
 
-        public override string ToString()
-        {
-            return Display;
-        }
-    }
+    //    public override string ToString()
+    //    {
+    //        return Display;
+    //    }
+    //}
 }

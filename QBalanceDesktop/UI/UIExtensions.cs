@@ -24,5 +24,13 @@ namespace QBalanceDesktop.UI
         {
             return (T)Convert.ChangeType(obj, typeof(T));
         }
+
+        public static void Fill(this ComboBox cmb, List<ListItem> data, bool clear = true)
+        {
+            if (clear)
+                cmb.Items.Clear();
+
+            cmb.Items.AddRange(data.ToArray());
+        }
     }
 }

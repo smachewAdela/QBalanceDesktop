@@ -104,6 +104,8 @@ namespace QBalanceDesktop
 
             if (dataMode == DataModeEnum.Budget)
             {
+                if (GroupColors == null)
+                    LoadGroupColors();
                 foreach (var item in currentBudget.Items.OrderBy(x => x.GroupId).ToList())
                 {
                     var cd = new CategoryBudgetDisplay { BudgetItem = item, Index = idx++, DistinctiveItem = GroupColors.Keys.ToList().IndexOf(item.GroupId) % 2 == 0 };
@@ -121,6 +123,15 @@ namespace QBalanceDesktop
 
                 var totalItems = new BudgetGroupStatus { Group = "סה\"כ", Data = currentBudget.Items , IsTotal = true};
                 flowLayoutPanel1.Controls.Add(totalItems);
+            }
+            if (dataMode == DataModeEnum.Categories)
+            {
+                var groups = Db.GetData<BudgetGroup>(new SearchParameters());
+                foreach (var item in currentBudget.Items)
+                {
+                    var gs = new CategoryEdit { BudgetItem = item, Data = groups };
+                    flowLayoutPanel1.Controls.Add(gs);
+                }
             }
         }
 
