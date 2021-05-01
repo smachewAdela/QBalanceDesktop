@@ -186,7 +186,7 @@
             this.txAmount.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txAmount.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.txAmount.BackColor = System.Drawing.Color.DarkGoldenrod;
             this.txAmount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txAmount.Location = new System.Drawing.Point(312, 14);
             this.txAmount.Name = "txAmount";
@@ -210,7 +210,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.BackColor = System.Drawing.Color.DarkGoldenrod;
             this.Controls.Add(this.lblIndex);
             this.Controls.Add(this.txAmount);
             this.Controls.Add(this.lblName);

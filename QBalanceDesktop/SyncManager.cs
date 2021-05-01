@@ -21,27 +21,30 @@ namespace QBalanceDesktop
             }
         }
 
-        internal static async void Sync()
+        private static int startYear
         {
-            var dSession = Login();
-            FinandaSyncLog syncData = new FinandaSyncLog
+            get
             {
-                SyncStart = DateTime.Now,
-                NewTransactions = 0,
-                Session = dSession,
-                SyncEnd = DateTime.Now
-            };
-            Db.Insert(syncData);
+                return Convert.ToInt32(ConfigurationManager.AppSettings["startYear"]);
+            }
+        }
 
-            var startYear = Convert.ToInt32(ConfigurationManager.AppSettings["startYear"]);
-            var from = new DateTime(startYear, 1, 1);
-
-            try
+        private static int monthDelemeter
+        {
+            get
             {
-                var Accounts = new string[] 
-                {   "1073741826", 
-                    "1073741925", 
-                    "1073742012" , 
+                return Convert.ToInt32(ConfigurationManager.AppSettings["monthDelemeter"]);
+            }
+        }
+
+        private static string[] accountsToSync
+        {
+            get
+            {
+                return new string[]
+                {   "1073741826",
+                    "1073741925",
+                    "1073742012" ,
                     "1073741832",
                     "1073742130",
                     "1073742103",
@@ -50,21 +53,7 @@ namespace QBalanceDesktop
                     "1073741833",
                     "1073742199"
                 };
-                foreach (var item in Accounts)
-                {
-                    syncData.Account = item;
-                    SyncForAccount(syncData);
-                }
-                syncData.LogInfo = "SUCCESS";
-                syncData.Success = true;
             }
-            catch (Exception ex)
-            {
-                syncData.LogInfo = ex.Message;
-                syncData.Success = false;
-            }
-            syncData.SyncEnd = DateTime.Now;
-            Db.Update(syncData);
         }
 
         private static string Login()
@@ -93,43 +82,70 @@ namespace QBalanceDesktop
             return session;
         }
 
-        private static void SyncForAccount(FinandaSyncLog syncData)
+        internal static  void Sync()
         {
+            var dSession = Login();
+            DateTime from, to;
+            
+            CheckSyncStart(out from, out to);
+
+            FinandaSyncLog syncData = new FinandaSyncLog
+            {
+                SyncStart = DateTime.Now,
+                NewTransactions = 0,
+                SyncEnd = DateTime.Now,
+                TransactionsFromDate = from,
+                TransactionsToDate = to
+            };
+           
+
             try
             {
-                var startYear = Convert.ToInt32(ConfigurationManager.AppSettings["startYear"]);
-                var monthDelemeter = Convert.ToInt32(ConfigurationManager.AppSettings["monthDelemeter"]);
-
-                var from = new DateTime(startYear, 1, 1);
-                var to = from.AddMonths(monthDelemeter);
-               
-                do
+                foreach (var accountToSync in accountsToSync)
                 {
-                    
-                    //if (to > DateTime.Now.Date)
-                    //    to = DateTime.Now.Date;
-
-                    GetTrans(from, to, syncData);
-                    from = to;
-                    to = from.AddMonths(monthDelemeter);
+                    CheckSyncStart(out from, out to);
+                    while (from.Date <= DateTime.Now.Date)
+                    {
+                        RetriveTransactions(from, to, dSession, accountToSync, syncData);
+                        from = to;
+                        to = from.AddMonths(monthDelemeter);
+                    }
                 }
-                while (to.Date <= DateTime.Now.Date);
+
+                syncData.LogInfo = "SUCCESS";
+                syncData.Success = true;
             }
             catch (Exception ex)
             {
                 syncData.LogInfo = ex.Message;
                 syncData.Success = false;
             }
+            syncData.SyncEnd = DateTime.Now;
+            if(syncData.Id == 0)
+                Db.Insert(syncData);
+            else
+                Db.Update(syncData);
         }
 
-        private static async void GetTrans(DateTime from, DateTime to, FinandaSyncLog sync)
+        private static void CheckSyncStart(out DateTime from, out DateTime to)
+        {
+            from = new DateTime(startYear, 1, 1);
+            var lastSync = Db.GetData<FinandaSyncLog>().OrderByDescending(x => x.SyncEnd).FirstOrDefault();
+            if (lastSync != null)
+                from = lastSync.SyncEnd;
+
+
+            to = from.AddMonths(monthDelemeter);
+        }
+
+        private static async void RetriveTransactions(DateTime from, DateTime to, string session, string account, FinandaSyncLog sync)
         {
             try
             {
                 var model = new
                 {
-                    session = sync.Session, // "d338776e-13c1-4ee6-b9b7-1731bc1c3980",
-                    account = sync.Account, // "1073742012",
+                    session = session, // "d338776e-13c1-4ee6-b9b7-1731bc1c3980",
+                    account = account, // "1073742012",
                     startDate = from.Date.ToFormatedDate() ,// "2019-04-10",
                     endDate = to.Date.ToFormatedDate()// "2021-04-10"
                 };
@@ -148,6 +164,9 @@ namespace QBalanceDesktop
                             {
                                 Db.Insert(bankTransaction);
                                 sync.NewTransactions++;
+
+                                if (bankTransaction.CreateDate >= sync.TransactionsToDate)
+                                    sync.TransactionsToDate = bankTransaction.CreateDate;
                             }
                         }
                     }

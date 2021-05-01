@@ -21,7 +21,8 @@ namespace QBalanceDesktop
         Settings,
         Categories,
         Reports,
-        Status
+        Status,
+        Finanda
     }
     public partial class BaseForm : Form
     {
@@ -182,6 +183,12 @@ namespace QBalanceDesktop
                 var totalItems = new GenericKeyValueUC { Key = "סה\"כ", Value = currentBudget.Incomes.Sum(x => x.Amount).ToNumberFormat(), IsTotal = true };
                 flowLayoutPanel1.Controls.Add(totalItems);
             }
+            else if (dataMode == DataModeEnum.Finanda)
+            {
+                var gc = new FinandaSyncUC();
+                flowWidth = gc.Width;
+                flowLayoutPanel1.Controls.Add(gc);
+            }
             flowLayoutPanel1.Width = flowWidth + delemeter;
         }
 
@@ -296,6 +303,11 @@ namespace QBalanceDesktop
         private void btnStatus_Click(object sender, EventArgs e)
         {
             dataMode = DataModeEnum.Status;
+            RefreshView();
+        }
+        private void btnFinanda_Click(object sender, EventArgs e)
+        {
+            dataMode = DataModeEnum.Finanda;
             RefreshView();
         }
     }

@@ -46,6 +46,7 @@
             this.btnPrevMonth = new System.Windows.Forms.Button();
             this.btnNextMonth = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
+            this.btnFinanda = new System.Windows.Forms.Button();
             this.gbMain.SuspendLayout();
             this.panel1.SuspendLayout();
             this.pnlMonth.SuspendLayout();
@@ -57,7 +58,7 @@
             this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
-            this.btnExit.Location = new System.Drawing.Point(1013, 432);
+            this.btnExit.Location = new System.Drawing.Point(1012, 477);
             this.btnExit.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(172, 32);
@@ -68,6 +69,7 @@
             // gbMain
             // 
             this.gbMain.BackColor = System.Drawing.SystemColors.WindowText;
+            this.gbMain.Controls.Add(this.btnFinanda);
             this.gbMain.Controls.Add(this.btnScanFinanda);
             this.gbMain.Controls.Add(this.btnStatus);
             this.gbMain.Controls.Add(this.btnTrans);
@@ -82,7 +84,7 @@
             this.gbMain.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.gbMain.Name = "gbMain";
             this.gbMain.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.gbMain.Size = new System.Drawing.Size(1171, 333);
+            this.gbMain.Size = new System.Drawing.Size(1171, 379);
             this.gbMain.TabIndex = 1;
             this.gbMain.TabStop = false;
             // 
@@ -94,7 +96,7 @@
             this.btnScanFinanda.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnScanFinanda.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnScanFinanda.Image = ((System.Drawing.Image)(resources.GetObject("btnScanFinanda.Image")));
-            this.btnScanFinanda.Location = new System.Drawing.Point(4, 293);
+            this.btnScanFinanda.Location = new System.Drawing.Point(4, 339);
             this.btnScanFinanda.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnScanFinanda.Name = "btnScanFinanda";
             this.btnScanFinanda.Size = new System.Drawing.Size(68, 37);
@@ -221,7 +223,7 @@
             this.panel1.Location = new System.Drawing.Point(72, 19);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1095, 311);
+            this.panel1.Size = new System.Drawing.Size(1095, 357);
             this.panel1.TabIndex = 1;
             // 
             // flowLayoutPanel1
@@ -232,7 +234,7 @@
             this.flowLayoutPanel1.Location = new System.Drawing.Point(355, 0);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(740, 311);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(740, 357);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // pnlMonth
@@ -298,19 +300,35 @@
             this.lblTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblTitle.Font = new System.Drawing.Font("Verdana", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.lblTitle.Location = new System.Drawing.Point(916, 39);
+            this.lblTitle.Location = new System.Drawing.Point(916, 88);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(166, 37);
             this.lblTitle.TabIndex = 3;
             this.lblTitle.Text = "label1";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btnFinanda
+            // 
+            this.btnFinanda.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnFinanda.FlatAppearance.BorderSize = 0;
+            this.btnFinanda.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnFinanda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFinanda.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnFinanda.Location = new System.Drawing.Point(4, 278);
+            this.btnFinanda.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnFinanda.Name = "btnFinanda";
+            this.btnFinanda.Size = new System.Drawing.Size(68, 37);
+            this.btnFinanda.TabIndex = 2;
+            this.btnFinanda.Text = "Finanda";
+            this.btnFinanda.UseVisualStyleBackColor = true;
+            this.btnFinanda.Click += new System.EventHandler(this.btnFinanda_Click);
+            // 
             // BaseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Desktop;
-            this.ClientSize = new System.Drawing.Size(1211, 472);
+            this.ClientSize = new System.Drawing.Size(1211, 521);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.pnlMonth);
             this.Controls.Add(this.gbMain);
@@ -347,6 +365,7 @@
         private System.Windows.Forms.Button btnTrans;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Button btnScanFinanda;
+        private System.Windows.Forms.Button btnFinanda;
     }
 }
 
