@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BaseForm));
             this.btnExit = new System.Windows.Forms.Button();
             this.gbMain = new System.Windows.Forms.GroupBox();
+            this.btnGenerateMonth = new System.Windows.Forms.Button();
+            this.btnFinanda = new System.Windows.Forms.Button();
             this.btnScanFinanda = new System.Windows.Forms.Button();
             this.btnStatus = new System.Windows.Forms.Button();
             this.btnTrans = new System.Windows.Forms.Button();
@@ -46,7 +48,6 @@
             this.btnPrevMonth = new System.Windows.Forms.Button();
             this.btnNextMonth = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.btnFinanda = new System.Windows.Forms.Button();
             this.gbMain.SuspendLayout();
             this.panel1.SuspendLayout();
             this.pnlMonth.SuspendLayout();
@@ -69,6 +70,7 @@
             // gbMain
             // 
             this.gbMain.BackColor = System.Drawing.SystemColors.WindowText;
+            this.gbMain.Controls.Add(this.btnGenerateMonth);
             this.gbMain.Controls.Add(this.btnFinanda);
             this.gbMain.Controls.Add(this.btnScanFinanda);
             this.gbMain.Controls.Add(this.btnStatus);
@@ -88,8 +90,42 @@
             this.gbMain.TabIndex = 1;
             this.gbMain.TabStop = false;
             // 
+            // btnGenerateMonth
+            // 
+            this.btnGenerateMonth.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnGenerateMonth.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnGenerateMonth.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnGenerateMonth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGenerateMonth.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnGenerateMonth.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnGenerateMonth.Image = ((System.Drawing.Image)(resources.GetObject("btnGenerateMonth.Image")));
+            this.btnGenerateMonth.Location = new System.Drawing.Point(4, 302);
+            this.btnGenerateMonth.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnGenerateMonth.Name = "btnGenerateMonth";
+            this.btnGenerateMonth.Size = new System.Drawing.Size(68, 37);
+            this.btnGenerateMonth.TabIndex = 2;
+            this.btnGenerateMonth.UseVisualStyleBackColor = false;
+            this.btnGenerateMonth.Click += new System.EventHandler(this.btnIncrementMonth_Click);
+            // 
+            // btnFinanda
+            // 
+            this.btnFinanda.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnFinanda.FlatAppearance.BorderSize = 0;
+            this.btnFinanda.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnFinanda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFinanda.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnFinanda.Location = new System.Drawing.Point(4, 278);
+            this.btnFinanda.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnFinanda.Name = "btnFinanda";
+            this.btnFinanda.Size = new System.Drawing.Size(68, 37);
+            this.btnFinanda.TabIndex = 2;
+            this.btnFinanda.Text = "Finanda";
+            this.btnFinanda.UseVisualStyleBackColor = true;
+            this.btnFinanda.Click += new System.EventHandler(this.btnFinanda_Click);
+            // 
             // btnScanFinanda
             // 
+            this.btnScanFinanda.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.btnScanFinanda.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnScanFinanda.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnScanFinanda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -101,7 +137,7 @@
             this.btnScanFinanda.Name = "btnScanFinanda";
             this.btnScanFinanda.Size = new System.Drawing.Size(68, 37);
             this.btnScanFinanda.TabIndex = 2;
-            this.btnScanFinanda.UseVisualStyleBackColor = true;
+            this.btnScanFinanda.UseVisualStyleBackColor = false;
             this.btnScanFinanda.Click += new System.EventHandler(this.btnStatus_Click);
             // 
             // btnStatus
@@ -307,22 +343,6 @@
             this.lblTitle.Text = "label1";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnFinanda
-            // 
-            this.btnFinanda.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnFinanda.FlatAppearance.BorderSize = 0;
-            this.btnFinanda.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnFinanda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFinanda.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnFinanda.Location = new System.Drawing.Point(4, 278);
-            this.btnFinanda.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnFinanda.Name = "btnFinanda";
-            this.btnFinanda.Size = new System.Drawing.Size(68, 37);
-            this.btnFinanda.TabIndex = 2;
-            this.btnFinanda.Text = "Finanda";
-            this.btnFinanda.UseVisualStyleBackColor = true;
-            this.btnFinanda.Click += new System.EventHandler(this.btnFinanda_Click);
-            // 
             // BaseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -366,6 +386,7 @@
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Button btnScanFinanda;
         private System.Windows.Forms.Button btnFinanda;
+        private System.Windows.Forms.Button btnGenerateMonth;
     }
 }
 
