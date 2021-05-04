@@ -9,12 +9,12 @@ using System.Windows.Forms;
 namespace QBalanceDesktop.UI
 {
     public partial class CategoryDisplay : UserControl
-    {
+    { 
         public CategoryDisplay()
         {
             InitializeComponent();
-            btnAdd.MouseHover += BtnAdd_MouseHover;
-            btnAdd.MouseLeave += BtnAdd_MouseLeave;
+            //btnAdd.MouseHover += BtnAdd_MouseHover;
+            //btnAdd.MouseLeave += BtnAdd_MouseLeave;
         }
 
         private void BtnAdd_MouseLeave(object sender, EventArgs e)
@@ -65,6 +65,7 @@ namespace QBalanceDesktop.UI
             {
                 _icolor = value;
                lblIndex.ForeColor = value;
+                lblCategoryName.ForeColor = btnAdd.BackColor = value;
                 //pnlDelemeter.BackColor = value;
             }
         }
@@ -79,8 +80,9 @@ namespace QBalanceDesktop.UI
             {
                 if (value)
                 {
-                    this.BackColor = SystemColors.ControlDark;
+                    //this.BackColor = SystemColors.ControlDark;
                     //pnlDelemeter.BackColor = SystemColors.ControlDarkDark;
+                    //lblCategoryName.ForeColor = btnAdd.BackColor = value;
                 };
                 txAmount.BackColor = this.BackColor;
                 pnlDelemeter.BackColor = this.BackColor;
