@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
@@ -74,6 +75,12 @@ namespace QBalanceDesktop
 
 
         #endregion
+
+
+        public static bool IsNotEmpty(this IList lst)
+        {
+            return lst != null && lst.Count > 0;
+        }
 
     }
 }

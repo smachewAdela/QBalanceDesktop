@@ -189,6 +189,12 @@ namespace QBalanceDesktop
                 flowWidth = gc.Width;
                 flowLayoutPanel1.Controls.Add(gc);
             }
+            else if (dataMode == DataModeEnum.Reports)
+            {
+                var gc = new ReportsUC();
+                flowWidth = gc.Width;
+                flowLayoutPanel1.Controls.Add(gc);
+            }
             flowLayoutPanel1.Width = flowWidth + delemeter;
         }
 
@@ -261,6 +267,13 @@ namespace QBalanceDesktop
                     budgetItem.BudgetId = nextMonthI.Id;
                     budgetItem.StatusAmount = 0;
                     Db.Insert(budgetItem);
+                }
+
+                foreach (var income in currentBudget.Incomes)
+                {
+                    income.BudgetId = nextMonthI.Id;
+                    income.Amount = 0;
+                    Db.Insert(income);
                 }
             }
         }

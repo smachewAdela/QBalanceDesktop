@@ -63,6 +63,8 @@ namespace QBalanceDesktop.UI
                 {
                     this.BackColor = Color.Black;
                     this.ForeColor = Color.WhiteSmoke;
+                    this.BorderStyle = BorderStyle.None;
+                    lblKey.ForeColor = txValue.ForeColor = Color.DarkOrange;
                 }
             }
         }
@@ -76,6 +78,11 @@ namespace QBalanceDesktop.UI
             {
                 EditAction(IdArgument, txValue.Parse<int>());
             }
+        }
+
+        private void lblKey_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -44,6 +44,7 @@
             this.lblKey.TabIndex = 0;
             this.lblKey.Text = "label1";
             this.lblKey.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblKey.Click += new System.EventHandler(this.lblKey_Click);
             // 
             // txValue
             // 
