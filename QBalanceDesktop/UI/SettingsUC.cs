@@ -13,7 +13,7 @@ namespace QBalanceDesktop.UI
     {
         private ISettings ISettings;
 
-        public SettingsUC()
+        public SettingsUC() 
         {
             InitializeComponent();
             ISettings = GlobalsProviderBL.Db.GetData<ISettings>().FirstOrDefault();
@@ -43,6 +43,39 @@ namespace QBalanceDesktop.UI
         {
             ISettings.ShowUnbudgetedCategories = chkUnBudgetCats.Checked;
             GlobalsProviderBL.Db.Update(ISettings);
+        }
+
+        private void btnGenerateMonth_Click(object sender, EventArgs e)
+        {
+            var newMonth = new DateTime(dtPicker.Value.Year, dtPicker.Value.Month,1);
+            var existingMonth = GlobalsProviderBL.Db.GetSingle<Budget>(new SearchParameters { BudgetDate = newMonth });
+
+            if (existingMonth == null)
+            {
+                existingMonth = new Budget { Month = newMonth };
+                GlobalsProviderBL.Db.Insert(existingMonth);
+
+                var currentBudget = GlobalsProviderBL.GetLatestBudget();
+
+
+                foreach (var budgetItem in currentBudget.Items)
+                {
+                    budgetItem.BudgetId = existingMonth.Id;
+                    budgetItem.StatusAmount = 0;
+                    GlobalsProviderBL.Db.Insert(budgetItem);
+                }
+
+                foreach (var income in currentBudget.Incomes)
+                {
+                    income.BudgetId = existingMonth.Id;
+                    income.Amount = 0;
+                    GlobalsProviderBL.Db.Insert(income);
+                }
+
+                MessageBox.Show("Budget For Month Created Successfully !", "SUCCESS !");
+            }
+            else
+                MessageBox.Show("Budget For Month Already Exists !", "ALERT !");
         }
     }
 }

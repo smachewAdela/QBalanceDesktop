@@ -32,8 +32,11 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnSaveSettings = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.chkUnBudgetCats = new System.Windows.Forms.CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dtPicker = new System.Windows.Forms.DateTimePicker();
+            this.btnGenerateMonth = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -68,12 +71,24 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.AutoScroll = true;
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.btnGenerateMonth);
+            this.panel2.Controls.Add(this.dtPicker);
             this.panel2.Controls.Add(this.chkUnBudgetCats);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Location = new System.Drawing.Point(29, 23);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(688, 346);
             this.panel2.TabIndex = 1;
+            // 
+            // chkUnBudgetCats
+            // 
+            this.chkUnBudgetCats.AutoSize = true;
+            this.chkUnBudgetCats.Location = new System.Drawing.Point(211, 20);
+            this.chkUnBudgetCats.Name = "chkUnBudgetCats";
+            this.chkUnBudgetCats.Size = new System.Drawing.Size(15, 14);
+            this.chkUnBudgetCats.TabIndex = 1;
+            this.chkUnBudgetCats.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -84,14 +99,33 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Show UnBudget Categories";
             // 
-            // chkUnBudgetCats
+            // dtPicker
             // 
-            this.chkUnBudgetCats.AutoSize = true;
-            this.chkUnBudgetCats.Location = new System.Drawing.Point(211, 20);
-            this.chkUnBudgetCats.Name = "chkUnBudgetCats";
-            this.chkUnBudgetCats.Size = new System.Drawing.Size(15, 14);
-            this.chkUnBudgetCats.TabIndex = 1;
-            this.chkUnBudgetCats.UseVisualStyleBackColor = true;
+            this.dtPicker.Location = new System.Drawing.Point(210, 70);
+            this.dtPicker.Name = "dtPicker";
+            this.dtPicker.Size = new System.Drawing.Size(200, 23);
+            this.dtPicker.TabIndex = 2;
+            // 
+            // btnGenerateMonth
+            // 
+            this.btnGenerateMonth.FlatAppearance.BorderSize = 0;
+            this.btnGenerateMonth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGenerateMonth.Image = ((System.Drawing.Image)(resources.GetObject("btnGenerateMonth.Image")));
+            this.btnGenerateMonth.Location = new System.Drawing.Point(444, 72);
+            this.btnGenerateMonth.Name = "btnGenerateMonth";
+            this.btnGenerateMonth.Size = new System.Drawing.Size(109, 23);
+            this.btnGenerateMonth.TabIndex = 3;
+            this.btnGenerateMonth.UseVisualStyleBackColor = true;
+            this.btnGenerateMonth.Click += new System.EventHandler(this.btnGenerateMonth_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(28, 70);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(93, 15);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Generate Month";
             // 
             // SettingsUC
             // 
@@ -117,5 +151,8 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.CheckBox chkUnBudgetCats;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnGenerateMonth;
+        private System.Windows.Forms.DateTimePicker dtPicker;
+        private System.Windows.Forms.Label label2;
     }
 }

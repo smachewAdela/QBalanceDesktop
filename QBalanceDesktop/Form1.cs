@@ -200,16 +200,7 @@ namespace QBalanceDesktop
 
         private void RefreshMonth()
         {
-            var d = DateTime.Now.Date;
-            Budget b = null;
-            do
-            {
-                b = Db.GetSingle<Budget>(new SearchParameters { BudgetDate = d.FirstDayOfMonth() });
-                d = d.AddMonths(-1);
-            }
-            while (b == null);
-
-            currentBudget = b;
+            currentBudget = GlobalsProviderBL.GetLatestBudget() ;
         }
 
         public void onEditIncome(int idArg, object newValue)

@@ -34,6 +34,21 @@ namespace QBalanceDesktop
             }
         }
 
+        internal static Budget GetLatestBudget()
+        {
+
+            var d = DateTime.Now.Date;
+            Budget b = null;
+            do
+            {
+                b = Db.GetSingle<Budget>(new SearchParameters { BudgetDate = d.FirstDayOfMonth() });
+                d = d.AddMonths(-1);
+            }
+            while (b == null);
+
+            return b;
+        }
+
         //static Budget b;
         //public static Budget CurrentBudget
         //{
@@ -55,6 +70,6 @@ namespace QBalanceDesktop
         //    }
         //}
 
-        
+
     }
 }

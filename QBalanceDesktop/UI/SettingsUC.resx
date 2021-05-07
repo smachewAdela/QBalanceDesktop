@@ -61,13 +61,22 @@
   <data name="btnSaveSettings.Image" type="System.Drawing.Bitmap, System.Drawing.Common" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DwAACw8BkvkDpQAAAVdJREFUSEvNVkFKxEAQnJsgiMkaTCaXycCC+AhZfYP4Cj149baP8OjBfYY3Dz7A
+        DgAACw4BQL7hQQAAAVdJREFUSEvNVkFKxEAQnJsgiMkaTCaXycCC+AhZfYP4Cj149baP8OjBfYY3Dz7A
         B3jwCcJeBa2eNCabTCdNImhBkUxPdVdPkkliCGVZ7idFtQLPG7qLtHDXSV7dSlwcu0vSHll3GgpJSPPq
         DsKvGfw8LPwVl+sDgjULmxVQlyHm7rud13PuDcdXWmmS+xdoZRNMBgMeBgQTNuXQDhB/JtJ5lp0cDJpg
         YpYBYdAEQdnA0mWoi3X4QUeWB7RNwKYxDHoGWeYsbv4TFZGYFv6G5T8IJvXK1xyKG8zB/zCgzYNY89gO
         sLvREBs3wPO9ZaGCbstpARwfMwiiRzDadYukieWqDBqRAFWuSiRAlasSCVDlqkQCVLkqkQBV7oDoHYy+
         JlokzQQD6x8QixWMccNpARiPG8zB3xmAsZ06hbsGv/DR75FqcnlgudxLrT/DRKybKVzRr5AxxnwDH5wa
         SWayJnAAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="btnGenerateMonth.Image" type="System.Drawing.Bitmap, System.Drawing.Common" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAACxIAAAsSAdLdfvwAAACmSURBVEhL3ZXdCYAwDISL4/jqcLqic+gemhMDJU2k9BB/
+        PriHNrlEIqTpV3SiSbSKtkbBixqoVYCAZ2rRKCrQL++PUxuDCDWW42TQ7ixhnVc0mE9dQTWgcihzRphD
+        mTPCHC+Aeet9JPtP9L7AC9zewELlUOaMMIcyZ4Q5NWbM287cQjWo4bkGuq6xclvBqkcNd13f/uDgmUMA
+        3T1TjeBFDffJ/CIp7QOuqUss+kWMAAAAAElFTkSuQmCC
 </value>
   </data>
 </root>
