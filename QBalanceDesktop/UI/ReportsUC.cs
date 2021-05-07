@@ -11,9 +11,13 @@ namespace QBalanceDesktop.UI
 {
     public enum ReportTypeEnum
     {
+        [Description("פרטי קטגוריה")]
         CategoryDetails,
+        [Description("פרטי קבוצה")]
         GroupDetails,
+        [Description("סיכות תקציב")]
         BudgetDetails,
+        [Description("סיכום הכנסות")]
         IncomeDetails
     }
     public partial class ReportsUC : UserControl
@@ -29,7 +33,7 @@ namespace QBalanceDesktop.UI
             cmbReportType.Items.Clear();
             foreach (ReportTypeEnum reportTypeEnum in Enum.GetValues(typeof(ReportTypeEnum)))
             {
-                cmbReportType.Items.Add(reportTypeEnum);
+                cmbReportType.Items.Add(new ListItem { Display = reportTypeEnum.GetEnumDescription(), Key = (int)reportTypeEnum, ExtraData = reportTypeEnum });
             }
         }
 
@@ -37,7 +41,7 @@ namespace QBalanceDesktop.UI
         {
             if (cmbReportType.HasSelection())
             {
-                RefreshView((ReportTypeEnum)cmbReportType.SelectedItem);
+                RefreshView((ReportTypeEnum)(cmbReportType.SelectedItem as ListItem).ExtraData);
             }
         }
 

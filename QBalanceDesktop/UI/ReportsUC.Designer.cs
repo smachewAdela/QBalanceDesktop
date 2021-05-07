@@ -70,22 +70,27 @@
             // 
             // cmbReportType
             // 
+            this.cmbReportType.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.cmbReportType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbReportType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbReportType.FormattingEnabled = true;
-            this.cmbReportType.Location = new System.Drawing.Point(270, 15);
+            this.cmbReportType.Location = new System.Drawing.Point(202, 15);
             this.cmbReportType.Name = "cmbReportType";
+            this.cmbReportType.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.cmbReportType.Size = new System.Drawing.Size(367, 23);
             this.cmbReportType.TabIndex = 1;
             this.cmbReportType.SelectedIndexChanged += new System.EventHandler(this.cmbReportType_SelectedIndexChanged);
             // 
             // label1
             // 
-            this.label1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Right;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Location = new System.Drawing.Point(608, 0);
             this.label1.Name = "label1";
+            this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label1.Size = new System.Drawing.Size(212, 48);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Select Report :";
+            this.label1.Text = "בחר דו\"ח :";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // dgvReports
@@ -101,7 +106,7 @@
             this.dgvReports.Name = "dgvReports";
             this.dgvReports.ReadOnly = true;
             this.dgvReports.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.dgvReports.Size = new System.Drawing.Size(737, 402);
+            this.dgvReports.Size = new System.Drawing.Size(820, 402);
             this.dgvReports.TabIndex = 1;
             this.dgvReports.Text = "dataGridView1";
             this.dgvReports.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvReports_CellFormatting);
@@ -114,7 +119,7 @@
             this.Controls.Add(this.dgvReports);
             this.Controls.Add(this.panel1);
             this.Name = "ReportsUC";
-            this.Size = new System.Drawing.Size(737, 450);
+            this.Size = new System.Drawing.Size(820, 450);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvReports)).EndInit();
             this.ResumeLayout(false);

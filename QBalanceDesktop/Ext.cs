@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace QBalanceDesktop
@@ -82,5 +83,28 @@ namespace QBalanceDesktop
             return lst != null && lst.Count > 0;
         }
 
+        public static String GetEnumDescription(this Enum obj)
+        {
+            try
+            {
+                System.Reflection.FieldInfo fieldInfo =
+                    obj.GetType().GetField(obj.ToString());
+
+                object[] attribArray = fieldInfo.GetCustomAttributes(false);
+
+                if (attribArray.Length > 0)
+                {
+                    var attrib = attribArray[0] as DescriptionAttribute;
+
+                    if (attrib != null)
+                        return attrib.Description;
+                }
+                return obj.ToString();
+            }
+            catch (NullReferenceException ex)
+            {
+                return "Unknown";
+            }
+        }
     }
 }
