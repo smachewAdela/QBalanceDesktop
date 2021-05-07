@@ -17,5 +17,20 @@
 
         [DbField()]
         public int BudgetId { get; set; }
+        public int OverSpent
+        {
+            get
+            {
+                return BudgetAmount < StatusAmount ? 1 : 0;
+            }
+        }
+
+        public bool Active
+        {
+            get
+            {
+                return BudgetAmount > 0;
+            }
+        }
     }
 }

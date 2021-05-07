@@ -64,6 +64,22 @@ namespace QBalanceDesktop
             }
         }
 
+        public Dictionary<int, int> CategoryStatusData
+        {
+            get
+            {
+                return Items.ToDictionary(x => x.Id, x => x.StatusAmount); 
+            }
+        }
+
+        public Dictionary<int, int> CategoryOverSpentData
+        {
+            get
+            {
+                return Items.ToDictionary(x => x.Id, x => x.BudgetAmount < x.StatusAmount ? 1 : 0);
+            }
+        }
+
         public Dictionary<int, int> GroupStatusData
         {
             get

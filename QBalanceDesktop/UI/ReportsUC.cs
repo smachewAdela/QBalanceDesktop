@@ -128,16 +128,39 @@ namespace QBalanceDesktop.UI
                 row[3] = ((int)months.Sum(x => x.GroupOverSpentData[g.Id])).ToNumberFormat();
                 row[4] = ((int)months.Sum(x => x.GroupBudgetData[g.Id])   - months.Sum(x => x.GroupStatusData[g.Id])).ToNumberFormat();
 
+                var ration = (months.Sum(x => x.GroupStatusData[g.Id]) * 100) / months.Sum(x => x.GroupBudgetData[g.Id]);
+                row[5] = $"{ ration }%";
                 tbl.Rows.Add(row);
             }
         }
 
         private void FillCategoryDetails(DataTable tbl, List<Budget> months)
         {
-            var row = tbl.NewRow();
+            var categories = GlobalsProviderBL.Db.GetData<BudgetItem>();
+            var currentMonth = months.OrderByDescending(x => x.Month).First();
+            months.Remove(currentMonth);
 
+            foreach (var c in currentMonth.Items.Where(x => x.Active).ToList())
+            {
+                var allCategoryInstances = categories.Where(x => x.CategoryName == c.CategoryName).ToList();
 
-            tbl.Rows.Add(row);
+                var row = tbl.NewRow();
+                row[0] = c.CategoryName;
+                row[1] = c.BudgetAmount.ToNumberFormat();
+                row[2] = ((int)allCategoryInstances.Average(x => x.StatusAmount)).ToNumberFormat();
+                row[3] = ((int)allCategoryInstances.Sum(x => x.OverSpent)).ToNumberFormat();
+                row[4] = ((int)allCategoryInstances.Sum(x => x.BudgetAmount) - allCategoryInstances.Sum(x => x.StatusAmount)).ToNumberFormat();
+
+                if (allCategoryInstances.Sum(x => x.BudgetAmount) > 0)
+                {
+                    var ration = (allCategoryInstances.Sum(x => x.StatusAmount) * 100) / allCategoryInstances.Sum(x => x.BudgetAmount);
+                    row[5] = $"{ ration }%";
+                }
+                else
+                    row[5] = string.Empty;
+            
+                tbl.Rows.Add(row);
+            }
         }
 
         private void FillColumns(DataTable tbl, ReportTypeEnum reportTypeEnum)
