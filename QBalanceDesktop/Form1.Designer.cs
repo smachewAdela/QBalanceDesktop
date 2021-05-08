@@ -357,6 +357,7 @@
             this.Name = "BaseForm";
             this.Text = "Form1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Activated += new System.EventHandler(this.BaseForm_Activated);
             this.Load += new System.EventHandler(this.BaseForm_Load);
             this.Resize += new System.EventHandler(this.BaseForm_Resize);
             this.gbMain.ResumeLayout(false);

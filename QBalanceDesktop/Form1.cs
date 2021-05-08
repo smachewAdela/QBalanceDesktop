@@ -316,5 +316,11 @@ namespace QBalanceDesktop
             dataMode = DataModeEnum.Finanda;
             RefreshView();
         }
+
+        private void BaseForm_Activated(object sender, EventArgs e)
+        {
+            string msg = "";
+            RefreshMonth();
+        }
     }
 }
