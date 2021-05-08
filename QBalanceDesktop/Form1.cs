@@ -320,7 +320,7 @@ namespace QBalanceDesktop
         private void BaseForm_Activated(object sender, EventArgs e)
         {
             string msg = "";
-            RefreshMonth();
+            //RefreshMonth();
         }
     }
 }

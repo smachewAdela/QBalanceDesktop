@@ -15,15 +15,20 @@ namespace QBalanceDesktop
             {
                 if (budgetDb == null)
                 {
-#if DEBUG
-                    var connStr = ConfigurationManager.AppSettings["connectionString"];
-#else
-                    var connStr = ConfigurationManager.AppSettings["prodconnectionString"];
-#endif
+                    string connStr = GetConnectionString(); 
                     budgetDb = new DbAccess(connStr);
                 }
                 return budgetDb;
             }
+        }
+
+        public static string GetConnectionString()
+        {
+#if DEBUG
+            return ConfigurationManager.AppSettings["connectionString"];
+#else
+            return ConfigurationManager.AppSettings["prodconnectionString"];
+#endif
         }
 
         public static ISettings Settings
