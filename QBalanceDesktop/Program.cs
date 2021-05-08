@@ -19,9 +19,14 @@ namespace QBalanceDesktop
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
+#if DEBUG
+          
+#else
             Thread StaticCaller = new Thread(new ThreadStart(BackUpManager.Perform));
             StaticCaller.Start();
-          
+#endif
+
+
             Application.Run(new BaseForm());
         }
     }
