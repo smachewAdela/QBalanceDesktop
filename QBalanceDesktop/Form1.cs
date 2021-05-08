@@ -203,12 +203,14 @@ namespace QBalanceDesktop
             currentBudget = GlobalsProviderBL.GetLatestBudget() ;
         }
 
-        public void onEditIncome(int idArg, object newValue)
+        public int onEditIncome(int idArg, object newValue)
         {
             var inc = Db.GetSingle<BudgetIncomeItem>(new SearchParameters { BudgetIncomeId = idArg });
-            inc.Amount = (int)newValue;
+            inc.Amount += (int)newValue;
             Db.Update(inc);
-            RefreshView(true);
+            //RefreshView(true);
+
+            return inc.Amount;
         }
 
         private void btnNextMonth_Click(object sender, EventArgs e)

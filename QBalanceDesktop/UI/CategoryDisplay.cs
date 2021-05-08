@@ -94,7 +94,7 @@ namespace QBalanceDesktop.UI
             var completion = value.StatusAmount > 0  && value.BudgetAmount > 0 ? (value.StatusAmount * 100 / value.BudgetAmount) : 0 ;
 
             lblCategoryName.Text = $"{value.CategoryName} ({value.BudgetAmount.ToNumberFormat()})";
-            lblStatusAmount.Text = $"{ value.StatusAmount}";;
+            lblStatusAmount.Text = $"{ value.StatusAmount.ToNumberFormat()}";;
 
             if (value.StatusAmount >= value.BudgetAmount)
             {

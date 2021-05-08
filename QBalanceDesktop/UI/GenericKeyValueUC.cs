@@ -70,13 +70,15 @@ namespace QBalanceDesktop.UI
         }
 
         public int IdArgument { get; internal set; }
-        public Action<int, object> EditAction { get; internal set; }
+        public Func<int, object, int> EditAction { get; internal set; }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
             if (Editable && txValue.HasText())
             {
-                EditAction(IdArgument, txValue.Parse<int>());
+                var value = txValue.Parse<int>();
+                var newValue = EditAction(IdArgument,value);
+                txValue.Text = newValue.ToNumberFormat();
             }
         }
 
