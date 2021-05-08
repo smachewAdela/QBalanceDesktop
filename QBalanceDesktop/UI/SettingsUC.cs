@@ -109,6 +109,8 @@ namespace QBalanceDesktop.UI
                         ValidateAndCreateCategory(newCategory, cMonth);
                     }
                     MessageBox.Show("Category Created !", "SUCCESS");
+
+                    ClearInputs();
                 }
                 else
                     MessageBox.Show("Please Enter Category Name", "ERROR");
@@ -117,6 +119,14 @@ namespace QBalanceDesktop.UI
             {
                 MessageBox.Show("Please Select Group", "ERROR");
             }
+        }
+
+        private void ClearInputs()
+        {
+            cmbNewCategoryGroup.SelectedIndex = 0;
+            txNewCategoryBudget.Text = string.Empty;
+            txNewCategoryName.Text = string.Empty;
+            chkAllMonths.Checked = true;
         }
 
         private static void ValidateAndCreateCategory(BudgetItem newCategory, Budget m)

@@ -10,7 +10,7 @@ namespace QBalanceDesktop.UI
 {
     public partial class CategoryBudgetDisplay : UserControl
     {
-        public CategoryBudgetDisplay()
+        public CategoryBudgetDisplay() 
         {
             InitializeComponent();
             btnUpdate.MouseHover += BtnUpdate_MouseHover; 

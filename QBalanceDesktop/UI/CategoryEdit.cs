@@ -50,8 +50,20 @@ namespace QBalanceDesktop.UI
         {
             if (cmbGroups.HasSelection())
             {
-                _bi.GroupId = cmbGroups.GetSelection();
-                GlobalsProviderBL.Db.Update(_bi);
+                if (chkUpdateAll.Checked)
+                {
+                    var allBudgetItems = GlobalsProviderBL.Db.GetData<BudgetItem>().Where(x => x.CategoryName == _bi.CategoryName).ToList();
+                    foreach (var allBudgetItem in allBudgetItems)
+                    {
+                        allBudgetItem.GroupId = cmbGroups.GetSelection();
+                        GlobalsProviderBL.Db.Update(allBudgetItem);
+                    }
+                }
+                else
+                {
+                    _bi.GroupId = cmbGroups.GetSelection();
+                    GlobalsProviderBL.Db.Update(_bi);
+                }
             }
         }
     }
