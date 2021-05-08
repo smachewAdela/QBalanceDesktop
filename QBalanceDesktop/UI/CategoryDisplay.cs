@@ -110,9 +110,10 @@ namespace QBalanceDesktop.UI
                 GlobalsProviderBL.Db.Update(_bi);
                 SetValues(_bi);
                 txAmount.Text = string.Empty;
+                PopUpManager.NotifyGenericSuccess();
             }
+            else
+                PopUpManager.NotifyInvalidInput();
         }
-
-       
     }
 }

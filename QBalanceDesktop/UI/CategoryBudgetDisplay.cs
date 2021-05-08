@@ -40,6 +40,7 @@ namespace QBalanceDesktop.UI
             set
             {
                 lblIndex.Text = value.ToString();
+                lblIndex.Visible = false;
             }
         }
 
@@ -96,7 +97,11 @@ namespace QBalanceDesktop.UI
                 _bi.BudgetAmount += txAmount.Parse<int>();
                 GlobalsProviderBL.Db.Update(_bi);
                 SetValues(_bi);
+
+                PopUpManager.NotifySuccess("העדכון בוצע בהצלחה");
             }
+            else
+                PopUpManager.NotifyError("יש להזין סכום");
         }
     }
 }

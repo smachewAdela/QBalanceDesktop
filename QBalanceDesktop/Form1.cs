@@ -224,7 +224,7 @@ namespace QBalanceDesktop
             }
             else
             {
-                MessageBox.Show("החודש הבא טרם הוגדר");
+                PopUpManager.NotifyError("החודש הבא טרם הוגדר");
             }
         }
 
@@ -239,7 +239,7 @@ namespace QBalanceDesktop
             }
             else
             {
-                MessageBox.Show("החודש הקודם טרם הוגדר");
+                PopUpManager.NotifyError("החודש הקודם טרם הוגדר");
             }
         }
 

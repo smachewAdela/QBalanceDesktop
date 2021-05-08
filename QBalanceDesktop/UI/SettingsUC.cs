@@ -49,6 +49,7 @@ namespace QBalanceDesktop.UI
         {
             ISettings.ShowUnbudgetedCategories = chkUnBudgetCats.Checked;
             GlobalsProviderBL.Db.Update(ISettings);
+            PopUpManager.NotifyGenericSuccess();
         }
 
         private void btnGenerateMonth_Click(object sender, EventArgs e)
@@ -78,10 +79,11 @@ namespace QBalanceDesktop.UI
                     GlobalsProviderBL.Db.Insert(income);
                 }
 
-                MessageBox.Show("Budget For Month Created Successfully !", "SUCCESS !");
+                //MessageBox.Show("Budget For Month Created Successfully !", "SUCCESS !");
+                PopUpManager.NotifyGenericSuccess();
             }
             else
-                MessageBox.Show("Budget For Month Already Exists !", "ALERT !");
+                PopUpManager.NotifyError("תקציב זה כבר מוגדר");
         }
 
         private void btnGenNewCategory_Click(object sender, EventArgs e)

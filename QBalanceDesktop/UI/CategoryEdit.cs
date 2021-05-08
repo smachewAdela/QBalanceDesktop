@@ -64,7 +64,11 @@ namespace QBalanceDesktop.UI
                     _bi.GroupId = cmbGroups.GetSelection();
                     GlobalsProviderBL.Db.Update(_bi);
                 }
+
+                PopUpManager.NotifyGenericSuccess();
             }
+            else
+                PopUpManager.NotifyInvalidInput();
         }
     }
 }
