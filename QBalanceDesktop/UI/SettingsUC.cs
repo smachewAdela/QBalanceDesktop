@@ -27,6 +27,12 @@ namespace QBalanceDesktop.UI
             }
 
             chkUnBudgetCats.Checked = ISettings.ShowUnbudgetedCategories;
+
+            var groups = GlobalsProviderBL.Db.GetData<BudgetGroup>(new SearchParameters());
+            foreach (var g in groups)
+            {
+                cmbNewCategoryGroup.Items.Add(new ListItem { Display = g.Name, Key = g.Id });
+            }
         }
 
         private void SettingsUC_Load(object sender, EventArgs e)
@@ -76,6 +82,52 @@ namespace QBalanceDesktop.UI
             }
             else
                 MessageBox.Show("Budget For Month Already Exists !", "ALERT !");
+        }
+
+        private void btnGenNewCategory_Click(object sender, EventArgs e)
+        {
+            if (cmbNewCategoryGroup.HasSelection())
+            {
+                if (txNewCategoryName.HasText())
+                {
+                    var newCategory = new BudgetItem {  CategoryName = txNewCategoryName.Text};
+                    if (txNewCategoryBudget.HasText())
+                    {
+                        newCategory.BudgetAmount = txNewCategoryBudget.Parse<int>();
+                    }
+                    if (chkAllMonths.Checked)
+                    {
+                        var months = GlobalsProviderBL.Db.GetData<Budget>(new SearchParameters());
+                        foreach (var m in months)
+                        {
+                            ValidateAndCreateCategory(newCategory, m);
+                        }
+                    }
+                    else
+                    {
+                        var cMonth = GlobalsProviderBL.GetLatestBudget();
+                        ValidateAndCreateCategory(newCategory, cMonth);
+                    }
+                    MessageBox.Show("Category Created !", "SUCCESS");
+                }
+                else
+                    MessageBox.Show("Please Enter Category Name", "ERROR");
+            }
+            else
+            {
+                MessageBox.Show("Please Select Group", "ERROR");
+            }
+        }
+
+        private static void ValidateAndCreateCategory(BudgetItem newCategory, Budget m)
+        {
+            if (m.Items.Any(x => x.CategoryName == newCategory.CategoryName))
+            {
+                MessageBox.Show("Category Already Exists For Month " + m.Title, "ERROR");
+                return;
+            }
+            newCategory.BudgetId = m.Id;
+            GlobalsProviderBL.Db.Insert(newCategory);
         }
     }
 }
